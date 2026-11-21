@@ -1,0 +1,66 @@
+device: cpu
+train 7162  val 924  test 1453  freeform 145
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 3381.69it/s]
+[transformers] [1mXLMRobertaModel LOAD REPORT[0m from: xlm-roberta-base
+Key                       | Status     |  | 
+--------------------------+------------+--+-
+lm_head.dense.bias        | UNEXPECTED |  | 
+lm_head.layer_norm.bias   | UNEXPECTED |  | 
+lm_head.layer_norm.weight | UNEXPECTED |  | 
+lm_head.bias              | UNEXPECTED |  | 
+lm_head.dense.weight      | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+intent weights: {'greet': 9.4, 'goodbye': 9.97, 'book_appointment': 1.0, 'reschedule_appointment': 1.51, 'cancel_appointment': 1.81, 'check_appointment': 1.9, 'doctor_availability': 1.55, 'describe_symptom': 1.4, 'inform': 1.24, 'confirm': 2.84, 'deny': 1.96, 'clinic_info': 2.05, 'emergency': 3.5, 'out_of_scope': 2.34}
+  ep 1 step 0 loss 7.6951  6s
+  ep 1 step 50 loss 6.8914  166s
+  ep 1 step 100 loss 6.0393  332s
+  ep 1 step 150 loss 5.1432  493s
+  ep 1 step 200 loss 4.4657  650s
+epoch 1: loss 4.2064  val {'n': 924, 'intent_acc': 0.9751, 'intent_macro_f1': 0.8212, 'dept_top1_acc': 0.4861, 'slot_entity_f1': 0.8988}
+  new best on val
+  ep 2 step 0 loss 1.7841  740s
+  ep 2 step 50 loss 1.6070  888s
+  ep 2 step 100 loss 1.3690  1026s
+  ep 2 step 150 loss 1.2095  1164s
+  ep 2 step 200 loss 1.0352  1303s
+epoch 2: loss 0.9801  val {'n': 924, 'intent_acc': 0.9935, 'intent_macro_f1': 0.8939, 'dept_top1_acc': 0.9806, 'slot_entity_f1': 0.9589}
+  new best on val
+  ep 3 step 0 loss 0.1598  1373s
+  ep 3 step 50 loss 0.2852  1511s
+  ep 3 step 100 loss 0.3004  1648s
+  ep 3 step 150 loss 0.2736  1788s
+  ep 3 step 200 loss 0.2513  1933s
+epoch 3: loss 0.2378  val {'n': 924, 'intent_acc': 1.0, 'intent_macro_f1': 1.0, 'dept_top1_acc': 0.9944, 'slot_entity_f1': 0.9936}
+  new best on val
+  ep 4 step 0 loss 0.6107  2011s
+  ep 4 step 50 loss 0.1372  2148s
+  ep 4 step 100 loss 0.1242  2297s
+  ep 4 step 150 loss 0.1279  2456s
+  ep 4 step 200 loss 0.1067  2615s
+epoch 4: loss 0.1006  val {'n': 924, 'intent_acc': 1.0, 'intent_macro_f1': 1.0, 'dept_top1_acc': 1.0, 'slot_entity_f1': 0.9987}
+  new best on val
+  ep 5 step 0 loss 0.0072  2699s
+  ep 5 step 50 loss 0.0230  2856s
+  ep 5 step 100 loss 0.0301  3009s
+  ep 5 step 150 loss 0.0303  3144s
+  ep 5 step 200 loss 0.0338  3281s
+epoch 5: loss 0.0333  val {'n': 924, 'intent_acc': 1.0, 'intent_macro_f1': 1.0, 'dept_top1_acc': 1.0, 'slot_entity_f1': 1.0}
+  new best on val
+
+== test ==
+split        n  intent_acc  intent_F1  dept_acc  slot_F1
+overall   1453      0.9553     0.9363    0.9952   0.9599
+mixed      333         1.0        1.0       1.0   0.9872
+roman      686       0.949     0.9336    0.9917   0.9309
+urdu       434      0.9309     0.9101    0.9944   0.9823
+
+== freeform ==
+split        n  intent_acc  intent_F1  dept_acc  slot_F1
+overall    145         0.8     0.7743     0.875     0.69
+mixed       25         0.8     0.7537       1.0     0.75
+roman       78      0.7949     0.7669      0.84   0.7263
+urdu        42      0.8095     0.6974    0.8421   0.5872
+saved model to /tmp/claude-0/-home-user/8a8a9408-492b-5e82-9b86-1b4b7d92e6f7/scratchpad/runs/xlmr_v2/model
+total time 56.3 min

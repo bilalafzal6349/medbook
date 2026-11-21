@@ -1,0 +1,305 @@
+{
+  "engine": "baseline",
+  "val": {
+    "all": {
+      "n": 360,
+      "model_only": 1.0,
+      "with_keywords": 1.0
+    },
+    "all_clean": {
+      "n": 360,
+      "model_only": 1.0,
+      "with_keywords": 1.0
+    },
+    "mixed": {
+      "n": 90,
+      "model_only": 1.0,
+      "with_keywords": 1.0
+    },
+    "roman": {
+      "n": 150,
+      "model_only": 1.0,
+      "with_keywords": 1.0
+    },
+    "urdu": {
+      "n": 120,
+      "model_only": 1.0,
+      "with_keywords": 1.0
+    },
+    "adult_rows_labelled_pediatrics": 0,
+    "changed_by_keywords": {
+      "total": 0,
+      "fixed": 0,
+      "broken": 0
+    }
+  },
+  "val_changes": [],
+  "test": {
+    "all": {
+      "n": 420,
+      "model_only": 0.998,
+      "with_keywords": 0.938
+    },
+    "all_clean": {
+      "n": 394,
+      "model_only": 0.997,
+      "with_keywords": 1.0
+    },
+    "mixed": {
+      "n": 120,
+      "model_only": 1.0,
+      "with_keywords": 0.892
+    },
+    "roman": {
+      "n": 120,
+      "model_only": 0.992,
+      "with_keywords": 1.0
+    },
+    "urdu": {
+      "n": 180,
+      "model_only": 1.0,
+      "with_keywords": 0.928
+    },
+    "adult_rows_labelled_pediatrics": 26,
+    "changed_by_keywords": {
+      "total": 27,
+      "fixed": 1,
+      "broken": 26
+    }
+  },
+  "test_changes": [
+    {
+      "text": "do din se gala kharab hai meherbani hogi",
+      "gold": "ent",
+      "model": "pediatrics",
+      "combined": "ent"
+    },
+    {
+      "text": "میرے بھانجے کی عمر 45 سال ہے، اسے پیٹ میں درد ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "gastroenterology"
+    },
+    {
+      "text": "میرے چھوٹے بھائی کی عمر پچیس سال ہے، اسے پیٹ میں درد ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "gastroenterology"
+    },
+    {
+      "text": "ہمارے بچے کی عمر 70 سال ہے، اسے کان میں درد ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "ent"
+    },
+    {
+      "text": "میرے چھوٹے بھائی کی عمر 45 سال ہے، اسے دست ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "gastroenterology"
+    },
+    {
+      "text": "میرے بچے کی عمر تیس سال ہے، اسے پیٹ میں درد ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "gastroenterology"
+    },
+    {
+      "text": "بھائی میرے بیٹے کی عمر 45 سال ہے، اسے الٹی ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "gastroenterology"
+    },
+    {
+      "text": "ہمارے بچے کی عمر 60 سال ہے، اسے کان میں درد ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "ent"
+    },
+    {
+      "text": "بھائی میری چھوٹی بہن کی عمر تیس سال ہے، اسے نزلہ زکام ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "general_physician"
+    },
+    {
+      "text": "میری بیٹی کی عمر 70 سال ہے، اسے خارش ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "dermatology"
+    },
+    {
+      "text": "میری بھتیجی کی عمر تیس سال ہے، اسے کان میں درد ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "ent"
+    },
+    {
+      "text": "میڈم میرے چھوٹے بھائی کی عمر پچیس سال ہے، اسے دست ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "gastroenterology"
+    },
+    {
+      "text": "میرے بچے کی عمر تیس سال ہے، اسے گلا خراب ہے جلدی بتا دیں",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "ent"
+    },
+    {
+      "text": "میرے بچے کی عمر تیس سال ہے، اسے جلد پر دانے ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "dermatology"
+    },
+    {
+      "text": "میرے چھوٹے بھائی کی age 25 saal ہے، اسے کان میں درد ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "ent"
+    },
+    {
+      "text": "میری چھوٹی بہن کی age پچیس سال ہے، اسے fever ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "general_physician"
+    },
+    {
+      "text": "میرے چھوٹے بھائی کی age 35 years ہے، اسے جلد پر دانے ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "dermatology"
+    },
+    {
+      "text": "جی میری بیٹی کی age 35 years ہے، اسے کان میں درد ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "ent"
+    },
+    {
+      "text": "میری بیٹی کی age 45 saal ہے، اسے گلا خراب ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "ent"
+    },
+    {
+      "text": "جی میری بھتیجی کی age 35 years ہے، اسے کان میں درد ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "ent"
+    },
+    {
+      "text": "میری چھوٹی بہن کی age 45 سال ہے، اسے نزلہ زکام ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "general_physician"
+    },
+    {
+      "text": "ہمارے بچے کی age 70 saal ہے، اسے گلا خراب ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "ent"
+    },
+    {
+      "text": "hello، میرے بھانجے کی age 25 saal ہے، اسے fever ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "general_physician"
+    },
+    {
+      "text": "میرے بھانجے کی age 60 سال ہے، اسے نزلہ زکام ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "general_physician"
+    },
+    {
+      "text": "میری چھوٹی بہن کی age 50 years ہے، اسے بخار ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "general_physician"
+    },
+    {
+      "text": "ہمارے بچے کی age 45 saal ہے، اسے الٹی ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "gastroenterology"
+    },
+    {
+      "text": "میرے بیٹے کی age 50 years ہے، اسے تیز بخار ہے",
+      "gold": "pediatrics",
+      "model": "pediatrics",
+      "combined": "general_physician"
+    }
+  ],
+  "test_freeform": {
+    "all": {
+      "n": 56,
+      "model_only": 0.911,
+      "with_keywords": 0.982
+    },
+    "all_clean": {
+      "n": 56,
+      "model_only": 0.911,
+      "with_keywords": 0.982
+    },
+    "mixed": {
+      "n": 12,
+      "model_only": 1.0,
+      "with_keywords": 0.917
+    },
+    "roman": {
+      "n": 25,
+      "model_only": 0.84,
+      "with_keywords": 1.0
+    },
+    "urdu": {
+      "n": 19,
+      "model_only": 0.947,
+      "with_keywords": 1.0
+    },
+    "adult_rows_labelled_pediatrics": 0,
+    "changed_by_keywords": {
+      "total": 6,
+      "fixed": 5,
+      "broken": 1
+    }
+  },
+  "test_freeform_changes": [
+    {
+      "text": "haathon pe laal nishaan ban gaye hain aur kharish hoti hai",
+      "gold": "dermatology",
+      "model": "pediatrics",
+      "combined": "dermatology"
+    },
+    {
+      "text": "gir gaya tha, ab kalai hila nahi pa raha",
+      "gold": "orthopedics",
+      "model": "gastroenterology",
+      "combined": "orthopedics"
+    },
+    {
+      "text": "mera beta kuch kha nahi raha aur halka bukhar hai",
+      "gold": "pediatrics",
+      "model": "general_physician",
+      "combined": "pediatrics"
+    },
+    {
+      "text": "my whole body aches and I have chills",
+      "gold": "general_physician",
+      "model": "pediatrics",
+      "combined": "general_physician"
+    },
+    {
+      "text": "رات سے سر میں شدید درد ہے اور آنکھیں جل رہی ہیں",
+      "gold": "general_physician",
+      "model": "orthopedics",
+      "combined": "general_physician"
+    },
+    {
+      "text": "face پر allergy ہو گئی ہے کسی cream سے",
+      "gold": "dermatology",
+      "model": "dermatology",
+      "combined": "general_physician"
+    }
+  ]
+}

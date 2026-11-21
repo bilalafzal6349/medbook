@@ -1,0 +1,59 @@
+device: cpu
+train 7159  val 920  test 1451  freeform 145
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:   3%|▎         | 6/199 [00:00<00:04, 44.09it/s]Loading weights:   6%|▌         | 11/199 [00:00<00:06, 31.06it/s]Loading weights:   8%|▊         | 16/199 [00:00<00:06, 26.97it/s]Loading weights:  12%|█▏        | 23/199 [00:00<00:06, 27.26it/s]Loading weights:  14%|█▎        | 27/199 [00:00<00:06, 25.67it/s]Loading weights:  16%|█▌        | 31/199 [00:01<00:05, 28.56it/s]Loading weights:  18%|█▊        | 35/199 [00:01<00:05, 30.24it/s]Loading weights:  20%|█▉        | 39/199 [00:01<00:05, 27.71it/s]Loading weights:  21%|██        | 42/199 [00:01<00:06, 25.38it/s]Loading weights:  25%|██▍       | 49/199 [00:01<00:04, 33.34it/s]Loading weights:  27%|██▋       | 53/199 [00:01<00:04, 32.99it/s]Loading weights:  29%|██▊       | 57/199 [00:01<00:04, 32.67it/s]Loading weights:  31%|███       | 62/199 [00:02<00:04, 33.25it/s]Loading weights:  34%|███▍      | 68/199 [00:02<00:03, 34.28it/s]Loading weights:  37%|███▋      | 73/199 [00:02<00:03, 33.46it/s]Loading weights:  39%|███▊      | 77/199 [00:02<00:03, 30.71it/s]Loading weights:  41%|████      | 81/199 [00:02<00:04, 28.12it/s]Loading weights:  43%|████▎     | 86/199 [00:02<00:03, 29.79it/s]Loading weights:  49%|████▊     | 97/199 [00:03<00:02, 37.01it/s]Loading weights:  55%|█████▌    | 110/199 [00:03<00:01, 45.24it/s]Loading weights:  60%|█████▉    | 119/199 [00:03<00:01, 44.17it/s]Loading weights:  62%|██████▏   | 124/199 [00:03<00:01, 43.97it/s]Loading weights:  65%|██████▍   | 129/199 [00:03<00:01, 38.32it/s]Loading weights:  68%|██████▊   | 135/199 [00:03<00:01, 40.67it/s]Loading weights:  70%|███████   | 140/199 [00:04<00:01, 39.67it/s]Loading weights:  74%|███████▍  | 147/199 [00:04<00:01, 41.81it/s]Loading weights: 100%|██████████| 199/199 [00:04<00:00, 47.14it/s]
+[transformers] [1mXLMRobertaModel LOAD REPORT[0m from: FacebookAI/xlm-roberta-base
+Key                       | Status     |  | 
+--------------------------+------------+--+-
+lm_head.layer_norm.bias   | UNEXPECTED |  | 
+lm_head.dense.bias        | UNEXPECTED |  | 
+lm_head.layer_norm.weight | UNEXPECTED |  | 
+lm_head.dense.weight      | UNEXPECTED |  | 
+lm_head.bias              | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+intent weights: {'greet': 9.4, 'goodbye': 9.97, 'book_appointment': 1.0, 'reschedule_appointment': 1.51, 'cancel_appointment': 1.81, 'check_appointment': 1.89, 'doctor_availability': 1.55, 'describe_symptom': 1.4, 'inform': 1.24, 'confirm': 2.83, 'deny': 1.96, 'clinic_info': 2.06, 'emergency': 3.5, 'out_of_scope': 2.32}
+  ep 1 step 0 loss 7.5431  21s
+  ep 1 step 50 loss 6.7555  113s
+  ep 1 step 100 loss 5.8076  205s
+  ep 1 step 150 loss 4.8510  291s
+  ep 1 step 200 loss 4.1550  381s
+epoch 1: loss 3.8807  val {'n': 920, 'intent_acc': 0.962, 'intent_macro_f1': 0.8205, 'dept_top1_acc': 0.625, 'slot_entity_f1': 0.9043}
+  new best on val
+  ep 2 step 0 loss 1.0209  431s
+  ep 2 step 50 loss 1.2279  523s
+  ep 2 step 100 loss 1.0459  616s
+  ep 2 step 150 loss 0.9181  707s
+  ep 2 step 200 loss 0.7989  802s
+epoch 2: loss 0.7676  val {'n': 920, 'intent_acc': 0.9957, 'intent_macro_f1': 0.8803, 'dept_top1_acc': 0.9778, 'slot_entity_f1': 0.9706}
+  new best on val
+  ep 3 step 0 loss 0.3448  851s
+  ep 3 step 50 loss 0.2766  943s
+  ep 3 step 100 loss 0.2485  1033s
+  ep 3 step 150 loss 0.2497  1125s
+  ep 3 step 200 loss 0.2338  1219s
+epoch 3: loss 0.2301  val {'n': 920, 'intent_acc': 0.9989, 'intent_macro_f1': 0.9759, 'dept_top1_acc': 0.9944, 'slot_entity_f1': 0.9897}
+  new best on val
+  ep 4 step 0 loss 0.0500  1268s
+  ep 4 step 50 loss 0.1051  1358s
+  ep 4 step 100 loss 0.0870  1448s
+  ep 4 step 150 loss 0.0818  1535s
+  ep 4 step 200 loss 0.0790  1626s
+epoch 4: loss 0.0807  val {'n': 920, 'intent_acc': 0.9989, 'intent_macro_f1': 0.9759, 'dept_top1_acc': 0.9972, 'slot_entity_f1': 0.9953}
+  new best on val
+
+== test ==
+split        n  intent_acc  intent_F1  dept_acc  slot_F1
+overall   1451      0.9883     0.9776    0.9952   0.9291
+mixed      332       0.994     0.9965       1.0   0.9618
+roman      684      0.9868     0.9641    0.9833   0.8812
+urdu       435      0.9862     0.9738       1.0   0.9754
+
+== freeform ==
+split        n  intent_acc  intent_F1  dept_acc  slot_F1
+overall    145      0.8483     0.8511    0.8571   0.6685
+mixed       25        0.88     0.8113    0.9167   0.6944
+roman       78      0.8333     0.8361      0.88   0.7292
+urdu        42      0.8571      0.819    0.7895   0.5421
+saved model to /tmp/claude-0/-home-user/248135d7-4524-509b-9109-12181630ab45/scratchpad/xlmr_final/model
+total time 28.0 min

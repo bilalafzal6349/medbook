@@ -1,0 +1,61 @@
+{
+  "engine": "xlmr",
+  "n": 300,
+  "openers": "freeform",
+  "overall": {
+    "n": 300,
+    "success": 0.997,
+    "avg_turns": 5.7
+  },
+  "overall_without_adult_pediatrics_labels": {
+    "n": 300,
+    "success": 0.997,
+    "avg_turns": 5.7
+  },
+  "book_without_adult_pediatrics_labels": {
+    "n": 212,
+    "success": 0.995,
+    "avg_turns": 6.5
+  },
+  "by_task": {
+    "book": {
+      "n": 212,
+      "success": 0.995,
+      "avg_turns": 6.5
+    },
+    "cancel": {
+      "n": 44,
+      "success": 1.0,
+      "avg_turns": 2.7
+    },
+    "reschedule": {
+      "n": 44,
+      "success": 1.0,
+      "avg_turns": 4.5
+    }
+  },
+  "by_script": {
+    "roman": {
+      "n": 161,
+      "success": 1.0,
+      "avg_turns": 5.4
+    },
+    "urdu": {
+      "n": 70,
+      "success": 0.986,
+      "avg_turns": 6.0
+    },
+    "mixed": {
+      "n": 69,
+      "success": 1.0,
+      "avg_turns": 5.9
+    }
+  },
+  "invented_booking_numbers": 0,
+  "failure_last_awaiting": [
+    [
+      "none",
+      1
+    ]
+  ]
+}

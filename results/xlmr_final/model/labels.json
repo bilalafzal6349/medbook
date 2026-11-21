@@ -1,0 +1,52 @@
+{
+  "model": "FacebookAI/xlm-roberta-base",
+  "max_len": 64,
+  "intents": {
+    "0": "greet",
+    "1": "goodbye",
+    "2": "book_appointment",
+    "3": "reschedule_appointment",
+    "4": "cancel_appointment",
+    "5": "check_appointment",
+    "6": "doctor_availability",
+    "7": "describe_symptom",
+    "8": "inform",
+    "9": "confirm",
+    "10": "deny",
+    "11": "clinic_info",
+    "12": "emergency",
+    "13": "out_of_scope"
+  },
+  "tags": {
+    "0": "O",
+    "1": "B-PATIENT_NAME",
+    "2": "I-PATIENT_NAME",
+    "3": "B-AGE",
+    "4": "I-AGE",
+    "5": "B-PHONE",
+    "6": "I-PHONE",
+    "7": "B-DATE",
+    "8": "I-DATE",
+    "9": "B-TIME",
+    "10": "I-TIME",
+    "11": "B-DOCTOR",
+    "12": "I-DOCTOR",
+    "13": "B-DEPARTMENT",
+    "14": "I-DEPARTMENT",
+    "15": "B-SYMPTOM",
+    "16": "I-SYMPTOM",
+    "17": "B-APPOINTMENT_ID",
+    "18": "I-APPOINTMENT_ID"
+  },
+  "departments": {
+    "0": "general_physician",
+    "1": "cardiology",
+    "2": "dermatology",
+    "3": "ent",
+    "4": "gastroenterology",
+    "5": "orthopedics",
+    "6": "gynecology",
+    "7": "pediatrics",
+    "8": "none"
+  }
+}

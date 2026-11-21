@@ -1,0 +1,47 @@
+[2026-11-21 08:04:44,962] vm/INFO/locust.main: Starting Locust 2.47.0
+[2026-11-21 08:04:44,965] vm/INFO/locust.main: Run time limit set to 120 seconds
+[2026-11-21 08:04:44,967] vm/INFO/locust.runners: Ramping to 50 users at a rate of 10.00 per second
+[2026-11-21 08:04:49,029] vm/INFO/locust.runners: All users spawned: {"Patient": 50} (50 total users)
+[2026-11-21 08:06:44,963] vm/INFO/locust.main: --run-time limit reached, shutting down
+
+[check] 138 appointments in the database, 132 booked through chat during the test, 0 double-booked slots
+[2026-11-21 08:06:45,158] vm/INFO/locust.main: Shutting down (exit code 0)
+Type     Name                                                                          # reqs      # fails |    Avg     Min     Max    Med |   req/s  failures/s
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+POST     chat:book                                                                        272     0(0.00%) |      9       5      59      8 |    2.27        0.00
+POST     chat:cancel                                                                       35     0(0.00%) |     13       5      60     10 |    0.29        0.00
+POST     chat:check                                                                        74     0(0.00%) |     15       6      72     11 |    0.62        0.00
+POST     chat:choose                                                                      368     0(0.00%) |      6       3      41      6 |    3.07        0.00
+POST     chat:confirm                                                                     279     0(0.00%) |     11       4      32     11 |    2.33        0.00
+POST     chat:emergency                                                                    52     0(0.00%) |      8       4      50      6 |    0.43        0.00
+POST     chat:greet                                                                       165     0(0.00%) |      8       4      59      6 |    1.38        0.00
+POST     chat:info                                                                         96     0(0.00%) |     13       6      78     11 |    0.80        0.00
+POST     chat:name                                                                        254     0(0.00%) |      6       4      17      6 |    2.12        0.00
+POST     chat:phone                                                                       251     0(0.00%) |      8       5      28      8 |    2.09        0.00
+POST     chat:symptom                                                                     110     0(0.00%) |     12       5      71      9 |    0.92        0.00
+POST     chat:time                                                                        375     0(0.00%) |     14       4      43     13 |    3.13        0.00
+GET      health                                                                            44     0(0.00%) |      9       2      60      3 |    0.37        0.00
+POST     reset                                                                            598     0(0.00%) |      4       2      19      4 |    4.98        0.00
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+         Aggregated                                                                      2973     0(0.00%) |      8       2      78      7 |   24.78        0.00
+
+Response time percentiles (approximated)
+Type     Name                                                                                  50%    66%    75%    80%    90%    95%    98%    99%  99.9% 99.99%   100% # reqs
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+POST     chat:book                                                                               8      8      9      9     11     15     46     51     60     60     60    272
+POST     chat:cancel                                                                            10     11     11     12     24     54     60     60     60     60     60     35
+POST     chat:check                                                                             11     13     13     14     19     60     65     73     73     73     73     74
+POST     chat:choose                                                                             6      6      7      7      9     10     12     13     41     41     41    368
+POST     chat:confirm                                                                           11     13     14     15     17     19     23     26     33     33     33    279
+POST     chat:emergency                                                                          6      6      7      7      8     23     46     51     51     51     51     52
+POST     chat:greet                                                                              6      6      7      7      9     35     48     58     59     59     59    165
+POST     chat:info                                                                              11     12     13     13     16     51     78     78     78     78     78     96
+POST     chat:name                                                                               6      7      7      7      9     11     14     16     17     17     17    254
+POST     chat:phone                                                                              8      9      9     10     12     14     17     25     28     28     28    251
+POST     chat:symptom                                                                            9      9     10     10     14     46     59     66     72     72     72    110
+POST     chat:time                                                                              13     15     16     17     20     23     28     30     43     43     43    375
+GET      health                                                                                  3      4      4      6     41     58     60     60     60     60     60     44
+POST     reset                                                                                   4      4      4      5      5      7      9     12     19     19     19    598
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+         Aggregated                                                                              7      9     10     11     14     18     28     50     73     78     78   2973
+

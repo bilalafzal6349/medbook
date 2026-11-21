@@ -1,0 +1,148 @@
+# Free-form test set: written one by one, NOT from templates, to test generalisation.
+# Format: intent | department | text, with slots marked as [value](SLOT)
+# Test-only. Never train on it. Replace / extend with real human-written messages later.
+book_appointment | general_physician | salam, mujhe teen din se [bukhar](SYMPTOM) hai aur koi doctor dekh le [aaj hi](DATE) to behtar hai
+book_appointment | cardiology | assalam o alaikum mere abbu ko [seene mein dard](SYMPTOM) rehta hai unka [heart specialist](DEPARTMENT) se checkup karwana hai
+book_appointment | dermatology | Bhai [skin wale doctor](DEPARTMENT) ka koi time mil jayega [Saturday](DATE) ko?
+book_appointment | orthopedics | [Dr Kamran](DOCTOR) se dikhana hai, [ghutna bohat dukh raha](SYMPTOM) hai, [kal](DATE) [shaam](TIME) ho sakta hai?
+book_appointment | pediatrics | beta [4 saal](AGE) ka hai [raat bhar khansta](SYMPTOM) raha, [bachon ki doctor](DEPARTMENT) available hain [aaj](DATE)?
+book_appointment | ent | [kaan mein awaazein](SYMPTOM) aati hain, kisi [ENT wale](DEPARTMENT) ko dikhana hai
+book_appointment | gynecology | mujhe [Dr. Saima Malik](DOCTOR) ke saath [next Tuesday](DATE) ka slot chahiye for [pregnancy checkup](SYMPTOM)
+book_appointment | gastroenterology | khana khate hi [pait phool](SYMPTOM) jata hai, kisi achay doctor se time de dein [parson](DATE)
+book_appointment | none | appointment chahiye thi [jumme](DATE) ko [Zuhr ke baad](TIME)
+book_appointment | none | mera naam [Sajjad Hussain](PATIENT_NAME) hai, number [0301-2345678](PHONE), [kal](DATE) ka time de dein kisi bhi doctor ka
+book_appointment | general_physician | need a checkup, [feeling weak](SYMPTOM) for a week, [tomorrow morning](DATE) possible?
+book_appointment | cardiology | [BP baar baar high](SYMPTOM) ho raha hai [dil ke doctor](DEPARTMENT) se milna hai
+book_appointment | pediatrics | meri [6 mahine](AGE) ki bachi ko [dast](SYMPTOM) lag gaye hain, [child specialist](DEPARTMENT) ka time?
+book_appointment | orthopedics | [kamar ka masla](SYMPTOM) hai bohat purana, [haddiyon wale doctor](DEPARTMENT) ka appointment
+book_appointment | none | [11 tareekh](DATE) ke liye booking ho sakti hai [subah 9 baje](TIME)?
+book_appointment | dermatology | chehre pe [daane](SYMPTOM) hi daane hain sir, [Dr Nadia](DOCTOR) ka time de dein
+book_appointment | ent | گلے میں [سوزش](SYMPTOM) ہے اور [بخار](SYMPTOM) بھی، کسی [ای این ٹی](DEPARTMENT) سے ملوا دیں
+book_appointment | general_physician | مجھے [ہلکی ہلکی کھانسی](SYMPTOM) ہے، [کل](DATE) کسی ڈاکٹر سے وقت مل جائے گا؟
+book_appointment | cardiology | میرے والد صاحب کو [دل کی تکلیف](SYMPTOM) ہے، [ڈاکٹر احمد رضا](DOCTOR) سے ملنا ہے
+book_appointment | gynecology | [لیڈی ڈاکٹر](DEPARTMENT) سے ملنا ہے [بدھ](DATE) کو، [دوپہر](TIME) کا وقت ہو
+book_appointment | pediatrics | میرے [دو سال](AGE) کے بیٹے کو [الٹیاں](SYMPTOM) ہو رہی ہیں، بچوں کے ڈاکٹر کا وقت چاہیے
+book_appointment | orthopedics | [پاؤں میں موچ](SYMPTOM) آ گئی ہے، [آج](DATE) [شام](TIME) کوئی ہڈیوں کا ڈاکٹر ہوگا؟
+book_appointment | none | [محمد اکرم](PATIENT_NAME) کے نام سے [پرسوں](DATE) کا وقت رکھ لیں
+book_appointment | gastroenterology | [معدے میں بہت جلن](SYMPTOM) رہتی ہے، [ڈاکٹر نوید اقبال](DOCTOR) کا وقت ملے گا؟
+book_appointment | dermatology | [بال بہت گر رہے](SYMPTOM) ہیں، [جلد کے ماہر](DEPARTMENT) سے وقت چاہیے
+book_appointment | general_physician | مجھے [شوگر](SYMPTOM) چیک کروانی ہے، [صبح](TIME) کا وقت دے دیں
+book_appointment | ent | [ڈاکٹر وسیم اکرم](DOCTOR) کا appointment چاہیے، [کان بند](SYMPTOM) ہے
+book_appointment | cardiology | [سینے میں جکڑن](SYMPTOM) ہے، کوئی cardiologist [today](DATE) available ہے؟
+book_appointment | pediatrics | بیٹی کو [vaccination](SYMPTOM) کروانی ہے، [child specialist](DEPARTMENT) کی booking کر دیں
+book_appointment | none | [اگلے جمعرات](DATE) کو [شام](TIME) میں کوئی appointment مل سکتی ہے؟
+book_appointment | gastroenterology | [stomach pain](SYMPTOM) بہت ہے، gastro doctor سے [کل](DATE) کا time لینا ہے
+book_appointment | orthopedics | [joints میں درد](SYMPTOM) رہتا ہے، [Dr. Adeel Qureshi](DOCTOR) سے ملنا ہے
+book_appointment | gynecology | میری wife کی [delivery](SYMPTOM) قریب ہے، [gynae](DEPARTMENT) سے checkup کروانا ہے
+book_appointment | none | میرا نام [عائشہ صدیقی](PATIENT_NAME) ہے، number [0333-1112223](PHONE) ہے، [Monday](DATE) کی booking کر دیں
+reschedule_appointment | none | yaar meri appointment [MB-4410](APPOINTMENT_ID) thori aage kar do [Thursday](DATE) tak
+reschedule_appointment | none | office se chutti nahi mili, [Sunday](DATE) wala time [next Sunday](DATE) kar dein
+reschedule_appointment | none | can we move my slot from [10 am](TIME) to [4 pm](TIME)?
+reschedule_appointment | none | [kal](DATE) wali booking [parson](DATE) pe shift ho sakti hai?
+reschedule_appointment | none | mujhe [Dr Farhan](DOCTOR) wala appointment change karwana hai, [shaam](TIME) ka kar dein
+reschedule_appointment | none | میرا وقت [جمعہ](DATE) کو ہے لیکن اس دن شادی ہے، [ہفتے](DATE) کو کر دیں
+reschedule_appointment | none | [MB-7720](APPOINTMENT_ID) والی تاریخ آگے کرنی ہے
+reschedule_appointment | none | appointment کا time [صبح](TIME) کی بجائے [شام](TIME) کر دیں please
+reschedule_appointment | none | [ڈاکٹر حنا جمیل](DOCTOR) والا وقت [اگلے ہفتے](DATE) کر دیں
+reschedule_appointment | none | meri ammi ka appointment shift karna hai [Wednesday](DATE) ko
+cancel_appointment | none | ab theek hoon, appointment ki zaroorat nahi, khatam kar dein
+cancel_appointment | none | [MB-3390](APPOINTMENT_ID) wali booking hata dein please
+cancel_appointment | none | hum shehar se bahar ja rahe hain, [Friday](DATE) ka appointment cancel
+cancel_appointment | none | میری اپائنٹمنٹ ختم کر دیں، اب طبیعت بہتر ہے
+cancel_appointment | none | [ڈاکٹر شازیہ کنول](DOCTOR) والا وقت کینسل کر دیں
+cancel_appointment | none | please [Ayesha Bibi](PATIENT_NAME) کی appointment remove کر دیں
+cancel_appointment | none | I won't be able to come [tomorrow](DATE), please cancel it
+cancel_appointment | none | [پرسوں](DATE) والی booking نہیں چاہیے
+check_appointment | none | mera time kitne baje ka diya tha aapne?
+check_appointment | none | bata dein meri booking pakki hai na [Dr Tariq](DOCTOR) ke saath?
+check_appointment | none | میرا اپائنٹمنٹ نمبر [MB-2290](APPOINTMENT_ID) ہے، کس وقت آنا ہے؟
+check_appointment | none | did my booking go through for [Monday](DATE)?
+check_appointment | none | [Rashid Mehmood](PATIENT_NAME) ki koi appointment register hai?
+check_appointment | none | میری booking کب کی ہے؟ number [0345-6667788](PHONE) ہے
+doctor_availability | cardiology | [Dr. Ahmed Raza](DOCTOR) aaj kal kis waqt aate hain?
+doctor_availability | pediatrics | [bachon ke doctor](DEPARTMENT) roz hote hain ya kuch din?
+doctor_availability | dermatology | is there any [skin specialist](DEPARTMENT) on [weekends](DATE)?
+doctor_availability | none | [Itwaar](DATE) ko koi doctor baithta hai?
+doctor_availability | ent | [ڈاکٹر طارق محمود](DOCTOR) کب سے کب تک بیٹھتے ہیں؟
+doctor_availability | orthopedics | [ہڈیوں کے ڈاکٹر](DEPARTMENT) کون سے دن آتے ہیں؟
+doctor_availability | gynecology | [lady doctor](DEPARTMENT) شام کو بھی available ہوتی ہیں؟
+doctor_availability | gastroenterology | [Dr Naveed Iqbal](DOCTOR) کا اگلا free slot کب ہے؟
+describe_symptom | general_physician | subah uthte hi [chakkar aata](SYMPTOM) hai aur [ji matlata](SYMPTOM) hai
+describe_symptom | cardiology | thora sa chalne pe hi [saans chadh jati](SYMPTOM) hai
+describe_symptom | dermatology | haathon pe [laal nishaan](SYMPTOM) ban gaye hain aur [kharish](SYMPTOM) hoti hai
+describe_symptom | ent | [naak se khoon](SYMPTOM) aata hai kabhi kabhi
+describe_symptom | gastroenterology | [khana hazam nahi hota](SYMPTOM), [kharab dakaarein](SYMPTOM) aati hain
+describe_symptom | orthopedics | gir gaya tha, ab [kalai hila nahi pa raha](SYMPTOM)
+describe_symptom | pediatrics | mera beta [kuch kha nahi raha](SYMPTOM) aur [halka bukhar](SYMPTOM) hai
+describe_symptom | gynecology | [periods](SYMPTOM) do mahine se nahi aaye
+describe_symptom | general_physician | my whole body [aches](SYMPTOM) and I have [chills](SYMPTOM)
+describe_symptom | general_physician | رات سے [سر میں شدید درد](SYMPTOM) ہے اور [آنکھیں جل](SYMPTOM) رہی ہیں
+describe_symptom | cardiology | [دل بہت تیز دھڑکتا](SYMPTOM) ہے سیڑھیاں چڑھتے ہوئے
+describe_symptom | dermatology | [جلد پر سفید دھبے](SYMPTOM) بن گئے ہیں
+describe_symptom | ent | [گلے میں کچھ پھنسا](SYMPTOM) ہوا محسوس ہوتا ہے
+describe_symptom | gastroenterology | [پیٹ کے نچلے حصے میں درد](SYMPTOM) ہے دو دن سے
+describe_symptom | orthopedics | [کندھا اوپر نہیں اٹھتا](SYMPTOM)
+describe_symptom | pediatrics | بچی رات کو بہت روتی ہے اور [کان کو ہاتھ](SYMPTOM) لگاتی ہے
+describe_symptom | gynecology | حمل کا [تیسرا مہینہ](SYMPTOM) ہے، چیک اپ کرانا ہے
+describe_symptom | gastroenterology | کھانے کے بعد [acidity](SYMPTOM) بہت ہوتی ہے
+describe_symptom | ent | [throat میں pain](SYMPTOM) ہے اور آواز بھی نہیں نکل رہی
+describe_symptom | dermatology | [face پر allergy](SYMPTOM) ہو گئی ہے کسی cream سے
+describe_symptom | orthopedics | [back میں بہت pain](SYMPTOM) ہے جب سے gym شروع کی
+inform | none | [Thursday](DATE) ko [3 baje](TIME)
+inform | none | naam hai [Rizwan Ahmed](PATIENT_NAME)
+inform | none | [0321 7778889](PHONE)
+inform | none | woh [35](AGE) saal ki hain
+inform | none | [Dr Hina Jamil](DOCTOR) wali theek rahegi
+inform | none | [اتوار](DATE) [گیارہ بجے](TIME) کے قریب
+inform | none | مریض [شازیہ پروین](PATIENT_NAME) ہیں، عمر [52 سال](AGE)
+inform | none | [شام](TIME) کا کوئی بھی وقت
+inform | none | [skin والے doctor](DEPARTMENT)
+inform | none | number ہے [0300 9998887](PHONE)
+inform | none | [MB-8810](APPOINTMENT_ID)
+inform | none | [next Friday](DATE) [after Maghrib](TIME)
+confirm | none | han bhai kar do
+confirm | none | jee bilkul yahi time chalega
+confirm | none | sure
+confirm | none | ٹھیک ہے، یہی کر دیں
+confirm | none | جی ہاں بالکل
+confirm | none | okay done
+confirm | none | haan haan theek hai
+confirm | none | ہاں جی پکا
+deny | none | nahi yaar ye wala nahi
+deny | none | no no, [Wednesday](DATE) nahi [Thursday](DATE)
+deny | none | koi aur doctor nahi hai?
+deny | none | نہیں یہ وقت مناسب نہیں
+deny | none | نہیں، میرا نام [سلمان](PATIENT_NAME) ہے
+deny | none | nope, [morning](TIME) nahi ho sakta
+deny | none | نہیں جی، [کل](DATE) نہیں [پرسوں](DATE)
+greet | none | asalam alaikum ji
+greet | none | hellooo
+greet | none | السلام و علیکم ورحمۃ اللہ
+greet | none | hey kya aap appointment mein madad kar saktay hain
+goodbye | none | chalo theek hai, Allah hafiz
+goodbye | none | بہت مہربانی آپ کی
+goodbye | none | thank u so much
+goodbye | none | ok bye bye
+clinic_info | none | clinic ki location bhej dein
+clinic_info | none | [Dr Ahmed](DOCTOR) ki consultation fee kitni hai?
+clinic_info | none | aap log ECG bhi karte hain?
+clinic_info | none | کلینک [اتوار](DATE) کو بند ہوتا ہے؟
+clinic_info | none | کیا کارڈ سے پیمنٹ ہو جاتی ہے؟
+clinic_info | none | clinic کتنے بجے تک کھلا رہتا ہے؟
+clinic_info | none | is there wheelchair access?
+emergency | none | jaldi ambulance bhejo abbu saans nahi le rahe
+emergency | none | meri ammi ko achanak seene mein bohat dard utha hai aur paseene aa rahe hain
+emergency | none | bacha seedhiyon se gir gaya hai sar se khoon nikal raha hai
+emergency | none | میرے بھائی نے بہت سی گولیاں کھا لی ہیں
+emergency | none | ابو اچانک گر گئے ہیں اور بول نہیں رہے
+emergency | none | accident ہو گیا ہے، بہت blood نکل رہا ہے
+emergency | none | my father is having a heart attack please help
+emergency | none | بچے کا سانس رک رہا ہے جلدی کچھ کریں
+out_of_scope | none | [sar dard](SYMPTOM) ki konsi tablet best hai?
+out_of_scope | none | kya mujhe covid ho sakta hai?
+out_of_scope | none | mera wazan kam karne ka diet plan bata do
+out_of_scope | none | آپ کا نام کیا ہے؟
+out_of_scope | none | [بخار](SYMPTOM) میں کون سا syrup دوں؟
+out_of_scope | none | کیا یہ رپورٹ خطرناک ہے؟
+out_of_scope | none | pakistan ka next match kab hai
+out_of_scope | none | can you write my assignment

@@ -1,0 +1,15 @@
+{
+  "backend": "llamacpp",
+  "model": "/root/llm/qwen2.5-3b-instruct-q4_k_m.gguf",
+  "shots": "zero",
+  "data": "/mnt/attach/project-files/medbook/data/dataset_v1",
+  "sets": "freeform,test",
+  "test_n": 300,
+  "out": "../results/llm_compare/qwen2.5-3b_zero",
+  "price_in": null,
+  "price_out": null,
+  "json_mode": "schema",
+  "threads": null,
+  "n_fewshot": 0,
+  "fewshot_ids": []
+}

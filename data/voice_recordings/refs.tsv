@@ -1,0 +1,33 @@
+# file	text (Urdu script, what was said)	intent	department
+# Record each line on a phone (any format: m4a, mp3, wav, ogg, webm). Name the files 01.m4a, 02.m4a, ...
+# Speak naturally; it is fine to say a line in Roman-Urdu style with English words, but write the reference in Urdu script.
+01.m4a	السلام علیکم، مجھے کل جلد کے ڈاکٹر کو دکھانا ہے	book_appointment	dermatology
+02.m4a	میرے بیٹے کو تین دن سے بخار ہے	describe_symptom	pediatrics
+03.m4a	مجھے کل دل کے ڈاکٹر سے ملنا ہے	book_appointment	cardiology
+04.m4a	ڈاکٹر کامران کب بیٹھتے ہیں؟	doctor_availability	orthopedics
+05.m4a	ایم بی 1042 کینسل کرنی ہے	cancel_appointment	
+06.m4a	ایم بی 7781 کو اگلے پیر پر شفٹ کر دیں	reschedule_appointment	
+07.m4a	کلینک کی فیس کتنی ہے؟	clinic_info	
+08.m4a	ابو بے ہوش ہو گئے ہیں، جلدی مدد کریں	emergency	
+09.m4a	صبح دس بجے	inform	
+10.m4a	میرا نام فاطمہ نور ہے	inform	
+11.m4a	میرا نمبر 03211234567 ہے	inform	
+12.m4a	جی ہاں، بک کر دیں	confirm	
+13.m4a	نہیں، پرسوں کر دیں	deny	
+14.m4a	گلے میں درد ہے اور بخار بھی	describe_symptom	ent
+15.m4a	پیٹ میں بہت درد ہے اور الٹیاں ہو رہی ہیں	describe_symptom	gastroenterology
+16.m4a	امی کو سانس نہیں آ رہی	emergency	
+17.m4a	میری اپائنٹمنٹ کب ہے؟ میرا بکنگ نمبر ایم بی 2210 ہے	check_appointment	
+18.m4a	لیڈی ڈاکٹر سے ملنا ہے بدھ کو، دوپہر کا وقت ہو	book_appointment	gynecology
+19.m4a	شام چار بجے کے بعد کا وقت دے دیں	inform	
+20.m4a	دوسرا والا ٹھیک ہے	inform	
+21.m4a	مجھے آنکھوں میں جلن ہے، کس ڈاکٹر کو دکھاؤں؟	describe_symptom	
+22.m4a	کلینک کہاں ہے؟	clinic_info	
+23.m4a	مجھے ہلکی ہلکی کھانسی ہے، کل کسی ڈاکٹر سے وقت مل جائے گا؟	book_appointment	general_physician
+24.m4a	گھٹنے میں درد ہے، ہڈیوں والے ڈاکٹر کا وقت چاہیے	book_appointment	orthopedics
+25.m4a	اللہ حافظ، شکریہ	goodbye	
+26.m4a	یہ دوائی کتنی دفعہ کھانی ہے؟	out_of_scope	
+27.m4a	پچیس تاریخ کو آ سکتا ہوں	inform	
+28.m4a	مجھے اپائنٹمنٹ منسوخ کرنی ہے	cancel_appointment	
+29.m4a	ڈاکٹر حنا جمیل سے جمعرات کو ملنا ہے	book_appointment	pediatrics
+30.m4a	بچے کو دانے نکل آئے ہیں اور خارش ہو رہی ہے	describe_symptom	pediatrics

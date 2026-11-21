@@ -1,0 +1,150 @@
+{"file": "syn_000.wav", "ref": "گلے میں سوزش ہے اور بخار بھی، کسی ای این ٹی سے ملوا دیں", "hyp": "گل مسوزش ہے، اور بخار بی، کسی این تیسے ملا دیں", "intent": "book_appointment", "intent_voice": "describe_symptom"}
+{"file": "syn_001.wav", "ref": "مجھے ہلکی ہلکی کھانسی ہے، کل کسی ڈاکٹر سے وقت مل جائے گا؟", "hyp": "مجھے حلکی خلکی خانسی ہے، کل کسی داکٹر سے وقت ملیا گا", "intent": "book_appointment", "intent_voice": "book_appointment"}
+{"file": "syn_002.wav", "ref": "میرے والد صاحب کو دل کی تکلیف ہے، ڈاکٹر احمد رضا سے ملنا ہے", "hyp": "میرے والد سہاب کو دل کی تقیف ہے، داکٹر، احمد ارزا سے مئنہ ہے", "intent": "book_appointment", "intent_voice": "describe_symptom"}
+{"file": "syn_003.wav", "ref": "لیڈی ڈاکٹر سے ملنا ہے بدھ کو، دوپہر کا وقت ہو", "hyp": "لیڈی داکٹر سے ملنا ہے، بڑکو، دو پھر کبک", "intent": "book_appointment", "intent_voice": "book_appointment"}
+{"file": "syn_004.wav", "ref": "میرے دو سال کے بیٹے کو الٹیاں ہو رہی ہیں، بچوں کے ڈاکٹر کا وقت چاہیے", "hyp": "میری دو سال کے بیٹے کو ایلتیہ ہو رہی ہے۔ بچوں کے داکٹر کا بکچھا ہی", "intent": "book_appointment", "intent_voice": "book_appointment"}
+{"file": "syn_005.wav", "ref": "پاؤں میں موچ آ گئی ہے، آج شام کوئی ہڈیوں کا ڈاکٹر ہوگا؟", "hyp": "آمم مجھ آدی ہے، آج شام کوئی حدیوں کا دکتر ہو", "intent": "book_appointment", "intent_voice": "book_appointment"}
+{"file": "syn_006.wav", "ref": "محمد اکرم کے نام سے پرسوں کا وقت رکھ لیں", "hyp": "محمر اکرم کے نام سے پرسوں کا وقت رکھلے", "intent": "book_appointment", "intent_voice": "book_appointment"}
+{"file": "syn_007.wav", "ref": "معدے میں بہت جلن رہتی ہے، ڈاکٹر نوید اقبال کا وقت ملے گا؟", "hyp": "مادی میں بہت جلد ہے، داکٹر نوید اثبال کا وقت ملے", "intent": "book_appointment", "intent_voice": "book_appointment"}
+{"file": "syn_008.wav", "ref": "بال بہت گر رہے ہیں، جلد کے ماہر سے وقت چاہیے", "hyp": "بال بہت گر رہے ہیں، جلد کے مہے سے وقت چاہی ہے", "intent": "book_appointment", "intent_voice": "book_appointment"}
+{"file": "syn_009.wav", "ref": "مجھے شوگر چیک کروانی ہے، صبح کا وقت دے دیں", "hyp": "مجھے شوگہ چیک کاروانی ہے، سوگہ کبک دی دے", "intent": "book_appointment", "intent_voice": "emergency"}
+{"file": "syn_010.wav", "ref": "میرا وقت جمعہ کو ہے لیکن اس دن شادی ہے، ہفتے کو کر دیں", "hyp": "میرا بک، جاماکو ہے، لیکن اس دن شادی ہے، حفتے کو کر دے", "intent": "reschedule_appointment", "intent_voice": "reschedule_appointment"}
+{"file": "syn_011.wav", "ref": "ڈاکٹر حنا جمیل والا وقت اگلے ہفتے کر دیں", "hyp": "تاکٹر حنات جمیل والابق، اگل احفتی کر دے", "intent": "reschedule_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_012.wav", "ref": "میری اپائنٹمنٹ ختم کر دیں، اب طبیعت بہتر ہے", "hyp": "میری اپنٹمنٹ ختم کر دے، اب تبیق بیتے ہیں", "intent": "cancel_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_013.wav", "ref": "ڈاکٹر شازیہ کنول والا وقت کینسل کر دیں", "hyp": "تاک تشاازی ایک مولوالہ وقت کے سل کر دے", "intent": "cancel_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_014.wav", "ref": "ڈاکٹر طارق محمود کب سے کب تک بیٹھتے ہیں؟", "hyp": "تاکٹر تارک، محمود، کسی، کبتک بیکھتے ہیں", "intent": "doctor_availability", "intent_voice": "describe_symptom"}
+{"file": "syn_015.wav", "ref": "ہڈیوں کے ڈاکٹر کون سے دن آتے ہیں؟", "hyp": "حالیوں کے داکٹر، کون سیدین آتے", "intent": "doctor_availability", "intent_voice": "doctor_availability"}
+{"file": "syn_016.wav", "ref": "رات سے سر میں شدید درد ہے اور آنکھیں جل رہی ہیں", "hyp": "رات سے سر میں شدید داد ہے اور آکت جلے ہیں", "intent": "describe_symptom", "intent_voice": "describe_symptom"}
+{"file": "syn_017.wav", "ref": "دل بہت تیز دھڑکتا ہے سیڑھیاں چڑھتے ہوئے", "hyp": "لی بہتیز دھرتا ہے، سیہ یا چاہتی میں", "intent": "describe_symptom", "intent_voice": "emergency"}
+{"file": "syn_018.wav", "ref": "جلد پر سفید دھبے بن گئے ہیں", "hyp": "جل پر سفید، بنگل،", "intent": "describe_symptom", "intent_voice": "inform"}
+{"file": "syn_019.wav", "ref": "گلے میں کچھ پھنسا ہوا محسوس ہوتا ہے", "hyp": "لی لے میں کچھ پاسہ ہوا مہسوص ہوتا ہے", "intent": "describe_symptom", "intent_voice": "describe_symptom"}
+{"file": "syn_020.wav", "ref": "پیٹ کے نچلے حصے میں درد ہے دو دن سے", "hyp": "پیک کے نچلے ہی سمід درد ہے، دو دین سے،", "intent": "describe_symptom", "intent_voice": "describe_symptom"}
+{"file": "syn_021.wav", "ref": "کندھا اوپر نہیں اٹھتا", "hyp": "کنھہ اپن نہیں اُر تھا", "intent": "describe_symptom", "intent_voice": "deny"}
+{"file": "syn_022.wav", "ref": "بچی رات کو بہت روتی ہے اور کان کو ہاتھ لگاتی ہے", "hyp": "اچی رات کو بہت روٹی ہے اور کان کو حطل راتی ہے", "intent": "describe_symptom", "intent_voice": "describe_symptom"}
+{"file": "syn_023.wav", "ref": "حمل کا تیسرا مہینہ ہے، چیک اپ کرانا ہے", "hyp": "ہمل کا تیسا مہیا، چیک آپ کرانا ہے", "intent": "describe_symptom", "intent_voice": "book_appointment"}
+{"file": "syn_024.wav", "ref": "اتوار گیارہ بجے کے قریب", "hyp": "توار گیا ربجی کی اکاری", "intent": "inform", "intent_voice": "out_of_scope"}
+{"file": "syn_025.wav", "ref": "مریض شازیہ پروین ہیں، عمر 52 سال", "hyp": "مریش آزی پر مین ہے، امر بان سال", "intent": "inform", "intent_voice": "inform"}
+{"file": "syn_026.wav", "ref": "شام کا کوئی بھی وقت", "hyp": "شام کا کوی بیوق،", "intent": "inform", "intent_voice": "inform"}
+{"file": "syn_027.wav", "ref": "ٹھیک ہے، یہی کر دیں", "hyp": "چیکڈیکڈی، گئے", "intent": "confirm", "intent_voice": "clinic_info"}
+{"file": "syn_028.wav", "ref": "جی ہاں بالکل", "hyp": "جیہا، بلکے", "intent": "confirm", "intent_voice": "confirm"}
+{"file": "syn_029.wav", "ref": "ہاں جی پکا", "hyp": "حدیپا", "intent": "confirm", "intent_voice": "inform"}
+{"file": "syn_030.wav", "ref": "نہیں یہ وقت مناسب نہیں", "hyp": "نہیں یہ وقت مناسی ب نہیں", "intent": "deny", "intent_voice": "deny"}
+{"file": "syn_031.wav", "ref": "نہیں، میرا نام سلمان ہے", "hyp": "نہیں میرہ نام، سلمان ہے", "intent": "deny", "intent_voice": "deny"}
+{"file": "syn_032.wav", "ref": "نہیں جی، کل نہیں پرسوں", "hyp": "میں، جی کل نہیں پاسوں", "intent": "deny", "intent_voice": "deny"}
+{"file": "syn_033.wav", "ref": "السلام و علیکم ورحمۃ اللہ", "hyp": "علی سلام، و علیکم و حم، اللہ،", "intent": "greet", "intent_voice": "goodbye"}
+{"file": "syn_034.wav", "ref": "بہت مہربانی آپ کی", "hyp": "بہت مہبانی آب کی", "intent": "goodbye", "intent_voice": "describe_symptom"}
+{"file": "syn_035.wav", "ref": "کلینک اتوار کو بند ہوتا ہے؟", "hyp": "کلی، اطبار کو بند ہوتا ہے", "intent": "clinic_info", "intent_voice": "emergency"}
+{"file": "syn_036.wav", "ref": "کیا کارڈ سے پیمنٹ ہو جاتی ہے؟", "hyp": "کیا کارسی پیمت ہو جاتی ہے", "intent": "clinic_info", "intent_voice": "clinic_info"}
+{"file": "syn_037.wav", "ref": "میرے بھائی نے بہت سی گولیاں کھا لی ہیں", "hyp": "میرے بھائنے بہو سی گولی اکھالی ہے", "intent": "emergency", "intent_voice": "emergency"}
+{"file": "syn_038.wav", "ref": "ابو اچانک گر گئے ہیں اور بول نہیں رہے", "hyp": "او اچانک، دیر گئے، اور بول نہیں رہے", "intent": "emergency", "intent_voice": "emergency"}
+{"file": "syn_039.wav", "ref": "بچے کا سانس رک رہا ہے جلدی کچھ کریں", "hyp": "بچے کا سا سردر ہا ہے، جلدی کشکر ہے", "intent": "emergency", "intent_voice": "describe_symptom"}
+{"file": "syn_040.wav", "ref": "آپ کا نام کیا ہے؟", "hyp": "آپ کھانام کیا؟", "intent": "out_of_scope", "intent_voice": "clinic_info"}
+{"file": "syn_041.wav", "ref": "کیا یہ رپورٹ خطرناک ہے؟", "hyp": "کیا یہ رکھ پورک خطر ناک ہے", "intent": "out_of_scope", "intent_voice": "out_of_scope"}
+{"file": "syn_042.wav", "ref": "مجھے کل کسی ڈاکٹر سے ملنا ہے، سینے میں درد کی شکایت ہے", "hyp": "مجھے کل کسی، داکٹر سے ملنا ہے، سیے مدد کشکائے تھا", "intent": "book_appointment", "intent_voice": "book_appointment"}
+{"file": "syn_043.wav", "ref": "میری یکم دسمبر والی اپائنٹمنٹ منسوخ کر دیں", "hyp": "میری جیام، دسمر، بالی، اپائی، تمور، تمانسوخ کر دیں", "intent": "cancel_appointment", "intent_voice": "reschedule_appointment"}
+{"file": "syn_044.wav", "ref": "میرا نمبر 03004445566 ہے، میری اپائنٹمنٹ دیکھ لیں", "hyp": "میرانمبر سفر، تین سفر سفر چار چار چار پچ پچچ ہے، میری اپائنٹ دیکھلے", "intent": "check_appointment", "intent_voice": "check_appointment"}
+{"file": "syn_045.wav", "ref": "میڈم پارکنگ کی جگہ ہے؟", "hyp": "میلیم پار کن کی جگہ ہے", "intent": "clinic_info", "intent_voice": "out_of_scope"}
+{"file": "syn_046.wav", "ref": "صحیح ہے جی", "hyp": "سیوگی، سیوگی، سیوگی،", "intent": "confirm", "intent_voice": "describe_symptom"}
+{"file": "syn_047.wav", "ref": "نہیں، جمعہ نہیں اس جمعے چاہیے", "hyp": "نی جمان نہیں اس جما چاہی", "intent": "deny", "intent_voice": "deny"}
+{"file": "syn_048.wav", "ref": "السلام علیکم، میرے چھوٹے بھائی کی عمر تیس سال ہے، اسے پیٹ میں درد ہے", "hyp": "علی سلام، علیکم، میرے چھوٹی بھائن کی امرتی سال ہے، اسے پیک میں دل،", "intent": "describe_symptom", "intent_voice": "describe_symptom"}
+{"file": "syn_049.wav", "ref": "کیا ڈاکٹر احمد رضا تین دن بعد تین بجے ہوں گے؟", "hyp": "کیا داکٹر اہمی درزا، تین دین بات، تین بچے ہوں گے", "intent": "doctor_availability", "intent_voice": "doctor_availability"}
+{"file": "syn_050.wav", "ref": "جلدی مدد کریں، سانس بالکل نہیں آ رہی", "hyp": "جلدی مدر کریں، سان اس بل کل نہیں آ رہے", "intent": "emergency", "intent_voice": "emergency"}
+{"file": "syn_051.wav", "ref": "شکریہ", "hyp": "چکوی اپنے چکوی اپنے", "intent": "goodbye", "intent_voice": "out_of_scope"}
+{"file": "syn_052.wav", "ref": "السلام علیکم جی", "hyp": "تلی سلام علیکم جی،", "intent": "greet", "intent_voice": "greet"}
+{"file": "syn_053.wav", "ref": "اگلے ہفتے کو", "hyp": "ادی ہفتی کو، ادی ہفتی کو،", "intent": "inform", "intent_voice": "inform"}
+{"file": "syn_054.wav", "ref": "السلام علیکم، جوڑوں میں درد کیوں ہوتا ہے؟", "hyp": "علی سلام علی تم جوروں میں دل، کی ہوتا ہے", "intent": "out_of_scope", "intent_voice": "describe_symptom"}
+{"file": "syn_055.wav", "ref": "منگل والا وقت دو دن بعد پر منتقل کر دیں", "hyp": "موضل والعبک، دو دین باد پر من تقیل کر دیں", "intent": "reschedule_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_056.wav", "ref": "بچوں کے ماہر کا وقت چاہیے پچیس تاریخ کے لیے", "hyp": "بچوں کے مہر کامک چاہی پچی ستاری کل", "intent": "book_appointment", "intent_voice": "book_appointment"}
+{"file": "syn_057.wav", "ref": "میری اٹھائیس تاریخ والی اپائنٹمنٹ منسوخ کر دیں", "hyp": "میری بٹھائیس، تاریفوالی اپائنٹمنٹ منسوخ کر دیں", "intent": "cancel_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_058.wav", "ref": "میرا نمبر +92 300 1234567 ہے، میری اپائنٹمنٹ دیکھ لیں مہربانی", "hyp": "میرا نمبر بانے، تین سو 1234 پچ ساتھ، میری اپائنٹمنٹ دیکھے، میھے بانی،", "intent": "check_appointment", "intent_voice": "check_appointment"}
+{"file": "syn_059.wav", "ref": "پارکنگ کی جگہ ہے؟", "hyp": "پارکن کی جگہ ہے", "intent": "clinic_info", "intent_voice": "inform"}
+{"file": "syn_060.wav", "ref": "سر صحیح ہے", "hyp": "سرسا ہیے، سرسا ہیے،", "intent": "confirm", "intent_voice": "confirm"}
+{"file": "syn_061.wav", "ref": "نہیں، ہفتہ نہیں 30 نومبر چاہیے", "hyp": "نے افتر نہیں تیس نوبر چاہیے", "intent": "deny", "intent_voice": "deny"}
+{"file": "syn_062.wav", "ref": "میرے بیٹے کی عمر ایک سال ہے، اسے بخار ہے جلدی بتا دیں", "hyp": "میرے بیکی امر ایسال ہے، اسے بخار ہے، جلدی بتا دیں", "intent": "describe_symptom", "intent_voice": "describe_symptom"}
+{"file": "syn_063.wav", "ref": "کیا ڈاکٹر شازیہ کنول کل دوپہر کو ہوں گے؟", "hyp": "کیا داکٹر شازی اکمول کل دوپار کو ہوں گے", "intent": "doctor_availability", "intent_voice": "doctor_availability"}
+{"file": "syn_064.wav", "ref": "جلدی مدد کریں، بچے کو کرنٹ لگ گیا ہے", "hyp": "جلی مدد کریں، بچے کو کنک لگیا ہے", "intent": "emergency", "intent_voice": "emergency"}
+{"file": "syn_065.wav", "ref": "دو دسمبر کو", "hyp": "مدر سامل کو", "intent": "inform", "intent_voice": "inform"}
+{"file": "syn_066.wav", "ref": "ناک بند کیوں ہوتا ہے؟", "hyp": "نات من ان کی ہوتا ہے", "intent": "out_of_scope", "intent_voice": "deny"}
+{"file": "syn_067.wav", "ref": "جمعہ والا وقت پیر پر منتقل کر دیں", "hyp": "جمع ووالا وقت پیر پر منطقل کرتے", "intent": "reschedule_appointment", "intent_voice": "clinic_info"}
+{"file": "syn_068.wav", "ref": "میڈم جنرل فزیشن کا وقت چاہیے بدھ کے لیے", "hyp": "میدم، جنل، فزیشن کے آوک چاہی بڑز کیلی", "intent": "book_appointment", "intent_voice": "book_appointment"}
+{"file": "syn_069.wav", "ref": "جی میری تین دن بعد والی اپائنٹمنٹ منسوخ کر دیں مہربانی ہو گی", "hyp": "جی، میری تین دین بات گوالی اپائنٹمنٹمنٹمنٹمن سوخ کر دیں، مہر بانی ہوگی", "intent": "cancel_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_070.wav", "ref": "بھائی میرا نمبر 0333 7654321 ہے، میری اپائنٹمنٹ دیکھ لیں", "hyp": "بھائنٹمنٹ چاہی، میراننبر، تین سو تینتی ساچ، پچ 4321 ہی، میری اپائنٹمنٹ تک لے", "intent": "check_appointment", "intent_voice": "reschedule_appointment"}
+{"file": "syn_071.wav", "ref": "جی پارکنگ کی جگہ ہے؟", "hyp": "جی پاکن کی جگ دہ ہے", "intent": "clinic_info", "intent_voice": "describe_symptom"}
+{"file": "syn_072.wav", "ref": "بھائی صحیح ہے", "hyp": "ایسی ہے", "intent": "confirm", "intent_voice": "inform"}
+{"file": "syn_073.wav", "ref": "نہیں، دو دن بعد نہیں اٹھائیس تاریخ چاہیے", "hyp": "نید، دل، بات نہیں اٹھایس، تریف چاہی", "intent": "deny", "intent_voice": "deny"}
+{"file": "syn_074.wav", "ref": "مجھے گیس ہے، کس ڈاکٹر کو دکھاؤں؟", "hyp": "مجھے گیس ہے، کس دیکھٹر کو دیکھا ہوں", "intent": "describe_symptom", "intent_voice": "describe_symptom"}
+{"file": "syn_075.wav", "ref": "کیا ڈاکٹر فرحان بٹ اگلے پیر شام کو ہوں گے؟", "hyp": "کیا داکٹر، کھان بڑا، ادیل، پیر، شام کو ہوں گے", "intent": "doctor_availability", "intent_voice": "doctor_availability"}
+{"file": "syn_076.wav", "ref": "جلدی مدد کریں، امی کو فالج کا حملہ لگ رہا ہے", "hyp": "جلدی مدکر ایمی کو فالش کا حملا لگرہا ہے", "intent": "emergency", "intent_voice": "emergency"}
+{"file": "syn_077.wav", "ref": "نام ماہ نور", "hyp": "نموانا، نموانا،", "intent": "inform", "intent_voice": "inform"}
+{"file": "syn_078.wav", "ref": "کمر درد کیوں ہوتا ہے؟", "hyp": "کمر دل، کیو ہوتا ہے", "intent": "out_of_scope", "intent_voice": "out_of_scope"}
+{"file": "syn_079.wav", "ref": "پرسوں والا وقت آج پر منتقل کر دیں", "hyp": "پرسوں، بالابق، آس پر منتقی کر دے", "intent": "reschedule_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_080.wav", "ref": "بھائی جلد کے ماہر سے صبح سویرے ملنا ہے", "hyp": "بھائی جلد کے مہر سے سبر سمیرے مینا ہے", "intent": "book_appointment", "intent_voice": "describe_symptom"}
+{"file": "syn_081.wav", "ref": "میری جمعرات والی اپائنٹمنٹ منسوخ کر دیں مہربانی ہو گی", "hyp": "میری جمارات، توالی اپائنٹمنٹمن سوخ کر دیں، محبانی ہو گئے", "intent": "cancel_appointment", "intent_voice": "emergency"}
+{"file": "syn_082.wav", "ref": "میرا نمبر 03017778899 ہے، میری اپائنٹمنٹ دیکھ لیں", "hyp": "میرا نمبر سفر، تین سفر، 1777 پار، آہ، نو، نوہی، میری اپائے پمدیخے", "intent": "check_appointment", "intent_voice": "reschedule_appointment"}
+{"file": "syn_083.wav", "ref": "السلام علیکم، پارکنگ کی جگہ ہے؟", "hyp": "علی سلام علیکم پرکن کی جے گا ہے", "intent": "clinic_info", "intent_voice": "out_of_scope"}
+{"file": "syn_084.wav", "ref": "بھائی جی بالکل جلدی بتا دیں", "hyp": "مجھے بلکر جلی بکھا گئ", "intent": "confirm", "intent_voice": "describe_symptom"}
+{"file": "syn_085.wav", "ref": "سر نہیں، اسی ہفتے نہیں اگلے ہفتے چاہیے جلدی بتا دیں", "hyp": "سن نہیں ایسی افتے نہیں، اگل حفکے چاہی، جلدی بطا دے", "intent": "deny", "intent_voice": "emergency"}
+{"file": "syn_086.wav", "ref": "میرے چھوٹے بھائی کی عمر پچیس سال ہے، اسے خارش ہے", "hyp": "میرے چھوٹے بھائی کی امر پچی سال ہے، اُسے خاریشے", "intent": "describe_symptom", "intent_voice": "describe_symptom"}
+{"file": "syn_087.wav", "ref": "کیا ڈاکٹر عثمان غنی جمعہ دوپہر کو ہوں گے؟", "hyp": "کیا داکٹر، اسمان رہنی جمار دو پہل کو ہو گئے", "intent": "doctor_availability", "intent_voice": "emergency"}
+{"file": "syn_088.wav", "ref": "جلدی مدد کریں، بہت خون بہہ رہا ہے رک نہیں رہا", "hyp": "جلدی ملد کریں، بہت خون بہی رہا ہی رکھ نہیں رہا", "intent": "emergency", "intent_voice": "emergency"}
+{"file": "syn_089.wav", "ref": "نام احمد", "hyp": "گام آہم", "intent": "inform", "intent_voice": "inform"}
+{"file": "syn_090.wav", "ref": "خارش کیوں ہوتا ہے؟", "hyp": "خارش کیوں ہوتا ہے", "intent": "out_of_scope", "intent_voice": "out_of_scope"}
+{"file": "syn_091.wav", "ref": "پیر والا وقت پچیس تاریخ پر منتقل کر دیں", "hyp": "پیر، والعوک، پچی اس تاری پر منتاکی کر دیں", "intent": "reschedule_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_092.wav", "ref": "فیملی ڈاکٹر سے ظہر کے بعد ملنا ہے", "hyp": "کنگی داکٹر سے ازہر کے باگ ملا ہے", "intent": "book_appointment", "intent_voice": "emergency"}
+{"file": "syn_093.wav", "ref": "میری اتوار والی اپائنٹمنٹ منسوخ کر دیں جلدی بتا دیں", "hyp": "میری اطواروالی اپائی تمنٹ من سوک دی، جللی بطا دی", "intent": "cancel_appointment", "intent_voice": "emergency"}
+{"file": "syn_094.wav", "ref": "سر میرا نمبر 03004445566 ہے، میری اپائنٹمنٹ دیکھ لیں", "hyp": "سرمی رنمبر سفد، تین سفر سفل، 4444 پاچ پاچت ہے، میری اپائی تمت دیکھے", "intent": "check_appointment", "intent_voice": "emergency"}
+{"file": "syn_095.wav", "ref": "میڈم صحیح ہے مہربانی ہو گی", "hyp": "میم، سہی ہے، مہے بانی ہوگی", "intent": "confirm", "intent_voice": "confirm"}
+{"file": "syn_096.wav", "ref": "نہیں، اٹھائیس تاریخ نہیں جمعرات چاہیے", "hyp": "نی اٹھایس، تریح نی جمارا چاہی", "intent": "deny", "intent_voice": "deny"}
+{"file": "syn_097.wav", "ref": "مجھے قبض ہے، کس ڈاکٹر کو دکھاؤں؟", "hyp": "مجھے کبز ہے، کس داکٹر کو دکھا ہوں", "intent": "describe_symptom", "intent_voice": "describe_symptom"}
+{"file": "syn_098.wav", "ref": "کیا ڈاکٹر عدیل قریشی جمعہ ڈھائی بجے ہوں گے؟", "hyp": "یا داکٹر، اگل، کریشی، جمار، دای بچی ہوں گے", "intent": "doctor_availability", "intent_voice": "emergency"}
+{"file": "syn_099.wav", "ref": "جلدی مدد کریں، ایکسیڈنٹ ہو گیا ہے سر پر چوٹ لگی ہے", "hyp": "جلدی مدد کرے، ایک سیے تھو گیا ہے، سر پچوک لگی ہی ہے", "intent": "emergency", "intent_voice": "emergency"}
+{"file": "syn_100.wav", "ref": "ڈاکٹر رابعہ اسلم", "hyp": "کھاکٹر رابہ اسلہ", "intent": "inform", "intent_voice": "inform"}
+{"file": "syn_101.wav", "ref": "کان میں درد کیوں ہوتا ہے؟", "hyp": "کان میں دل، کیو ہوتا ہے", "intent": "out_of_scope", "intent_voice": "describe_symptom"}
+{"file": "syn_102.wav", "ref": "السلام علیکم، بدھ والا وقت اسی ہفتے پر منتقل کر دیں", "hyp": "علی سلام علیکم، بد والابق، اسی حفت پر من تقیل کر دیا", "intent": "reschedule_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_103.wav", "ref": "مجھے دو دسمبر کسی ڈاکٹر سے ملنا ہے، حمل کا چیک اپ کی شکایت ہے", "hyp": "مجھے دو دس مر کسی داکٹر سے ملہ، ہمل کچھ ایک آپ کے شکات", "intent": "book_appointment", "intent_voice": "describe_symptom"}
+{"file": "syn_104.wav", "ref": "میری جمعہ والی اپائنٹمنٹ منسوخ کر دیں", "hyp": "میں جمع والی اپائنٹمنٹمنٹ سوھ کر دے", "intent": "cancel_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_105.wav", "ref": "میرا نمبر 0333 7654321 ہے، میری اپائنٹمنٹ دیکھ لیں شکریہ", "hyp": "میرا نمبر، تین سو، تین تیس سچ پچ، چا تین دو، ایک ہے، میری اپائنٹمنٹ دیکھے، شکلیے", "intent": "check_appointment", "intent_voice": "check_appointment"}
+{"file": "syn_106.wav", "ref": "جی بالکل جلدی بتا دیں", "hyp": "یہ بلکر جلی بکارے", "intent": "confirm", "intent_voice": "out_of_scope"}
+{"file": "syn_107.wav", "ref": "نہیں، اسی ہفتے نہیں ہفتہ چاہیے", "hyp": "می، ایسی، تین نہیں، اگت چاہیے", "intent": "deny", "intent_voice": "deny"}
+{"file": "syn_108.wav", "ref": "مجھے جلد خشک ہے، کس ڈاکٹر کو دکھاؤں؟", "hyp": "مجھے جہد فشک ہے، کس تاکٹر کو دیکھا ہوں", "intent": "describe_symptom", "intent_voice": "describe_symptom"}
+{"file": "syn_109.wav", "ref": "کیا ڈاکٹر شازیہ کنول 30 نومبر دوپہر کو ہوں گے؟", "hyp": "کیا داکٹر شازی کون تیس نو مدبار کو ہوں گے", "intent": "doctor_availability", "intent_voice": "doctor_availability"}
+{"file": "syn_110.wav", "ref": "جلدی مدد کریں، دادا جی کو دل کا دورہ پڑا ہے", "hyp": "جلی مداد کرے دادہ جی کو دلکہ دورا پرہا", "intent": "emergency", "intent_voice": "emergency"}
+{"file": "syn_111.wav", "ref": "نام نور فاطمہ", "hyp": "لہم نور فاتمہ،", "intent": "inform", "intent_voice": "inform"}
+{"file": "syn_112.wav", "ref": "جوڑوں میں درد کیوں ہوتا ہے؟", "hyp": "جو میں دیب، کیوں ہوتا ہے", "intent": "out_of_scope", "intent_voice": "describe_symptom"}
+{"file": "syn_113.wav", "ref": "سر اسی ہفتے والا وقت سوموار پر منتقل کر دیں", "hyp": "سر اسی حفتبالہ وق سو مار پر منتقی کر دیں", "intent": "reschedule_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_114.wav", "ref": "مجھے 30 نومبر کسی ڈاکٹر سے ملنا ہے، جلد پر دانے کی شکایت ہے", "hyp": "مجھے تیس، نمبر کسی، داکٹر سے ملنا ہے، جل پر دانی کشکائے تھے", "intent": "book_appointment", "intent_voice": "book_appointment"}
+{"file": "syn_115.wav", "ref": "بھائی میری یکم دسمبر والی اپائنٹمنٹ منسوخ کر دیں مہربانی", "hyp": "بھائنٹمنٹ پر مانسوخ کر دے، مہبان", "intent": "cancel_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_116.wav", "ref": "میرا نمبر 0331 2223344 ہے، میری اپائنٹمنٹ دیکھ لیں", "hyp": "میرا نمبر تین سو ارتیس دو دو دو کین تین چار چار ہے، میری اپائنٹ دیکھے", "intent": "check_appointment", "intent_voice": "check_appointment"}
+{"file": "syn_117.wav", "ref": "سر جی بالکل", "hyp": "سرجی بلکے", "intent": "confirm", "intent_voice": "inform"}
+{"file": "syn_118.wav", "ref": "نہیں، ہفتہ نہیں جمعہ چاہیے", "hyp": "نہیں حفتن نہیں جمع چاہی،", "intent": "deny", "intent_voice": "deny"}
+{"file": "syn_119.wav", "ref": "مجھے حمل کا الٹراساؤنڈ ہے، کس ڈاکٹر کو دکھاؤں؟", "hyp": "مجھے ہمل کا ایل کیا ساہوں نے ہے، کس داکٹر کو دیکھاہوں", "intent": "describe_symptom", "intent_voice": "describe_symptom"}
+{"file": "syn_120.wav", "ref": "کیا ڈاکٹر صوبیہ انور ہفتہ ظہر کے بعد ہوں گے؟", "hyp": "کیا داکٹر سوری انار ہفتزر کے بعد ہوں گے", "intent": "doctor_availability", "intent_voice": "doctor_availability"}
+{"file": "syn_121.wav", "ref": "جلدی مدد کریں، دورہ پڑ رہا ہے", "hyp": "جلدی مدد کریں، دور اپرے رہا ہے", "intent": "emergency", "intent_voice": "emergency"}
+{"file": "syn_122.wav", "ref": "ڈاکٹر حنا جمیل", "hyp": "تاکر حنا جمی،", "intent": "inform", "intent_voice": "inform"}
+{"file": "syn_123.wav", "ref": "گیس کیوں ہوتا ہے؟", "hyp": "جیس کیوں ہوتا ہے", "intent": "out_of_scope", "intent_voice": "describe_symptom"}
+{"file": "syn_124.wav", "ref": "اگلے پیر والا وقت آج پر منتقل کر دیں", "hyp": "اگل پیر، والعوق، آتر من تکل کر دیں", "intent": "reschedule_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_125.wav", "ref": "مجھے ہفتہ کسی ڈاکٹر سے ملنا ہے، پیٹ میں درد کی شکایت ہے", "hyp": "مجھے حفتا کسی دکتر سملا، پیک مداد کی شک آتے", "intent": "book_appointment", "intent_voice": "book_appointment"}
+{"file": "syn_126.wav", "ref": "میری سوموار والی اپائنٹمنٹ منسوخ کر دیں", "hyp": "میری سو مواروالی اپائنٹمنٹ کی ملسوخ کر دیں", "intent": "cancel_appointment", "intent_voice": "reschedule_appointment"}
+{"file": "syn_127.wav", "ref": "میرا نمبر 03134567890 ہے، میری اپائنٹمنٹ دیکھ لیں", "hyp": "میرا نمبر سفر، 3134 پچ، ساک آرنا سفر ہے، میری اپائن پونک دیکھلے", "intent": "check_appointment", "intent_voice": "reschedule_appointment"}
+{"file": "syn_128.wav", "ref": "صحیح ہے", "hyp": "سہیے", "intent": "confirm", "intent_voice": "confirm"}
+{"file": "syn_129.wav", "ref": "نہیں، اگلے مہینے نہیں اگلے ہفتے چاہیے مہربانی ہو گی", "hyp": "نی، آگی رہمہنے نہیں، آگی حفت چاہیے میں ہبانی ہوگی", "intent": "deny", "intent_voice": "deny"}
+{"file": "syn_130.wav", "ref": "میرے چھوٹے بھائی کی عمر دو سال ہے، اسے بخار ہے", "hyp": "میرے چھوڑے بھائی کی امر دو سال ہے، اسے مخار ہے", "intent": "describe_symptom", "intent_voice": "describe_symptom"}
+{"file": "syn_131.wav", "ref": "کیا ڈاکٹر شازیہ کنول پچیس تاریخ صبح دس بجے ہوں گے؟", "hyp": "کیا داکٹر شازی، کمول، پچیس، تالی، سبد، دس، بچے ہوں گے", "intent": "doctor_availability", "intent_voice": "doctor_availability"}
+{"file": "syn_132.wav", "ref": "جلدی مدد کریں، ابو بے ہوش ہو گئے ہیں", "hyp": "جلدی مدکر ہے، وہ بھی خوش ہو گیا ہے", "intent": "emergency", "intent_voice": "emergency"}
+{"file": "syn_133.wav", "ref": "جمعہ کو", "hyp": "جی ہاں مقو", "intent": "inform", "intent_voice": "confirm"}
+{"file": "syn_134.wav", "ref": "ماہواری کا مسئلہ کیوں ہوتا ہے؟", "hyp": "مہواری کامسیلت کیوں ہوتا ہے", "intent": "out_of_scope", "intent_voice": "out_of_scope"}
+{"file": "syn_135.wav", "ref": "پرسوں والا وقت اس جمعے پر منتقل کر دیں", "hyp": "رسو والہ وق اس جمع پر من تقل کر دے", "intent": "reschedule_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_136.wav", "ref": "مجھے دو دسمبر کسی ڈاکٹر سے ملنا ہے، کمزوری کی شکایت ہے مہربانی ہو گی", "hyp": "مجھے دو دس مر، کسی، داکٹر سے ملنا ہے، کمزوری کی شکائت ہے، مہر بانی ہوگی", "intent": "book_appointment", "intent_voice": "book_appointment"}
+{"file": "syn_137.wav", "ref": "میری اتوار والی اپائنٹمنٹ منسوخ کر دیں", "hyp": "میری اطواروالی، اپائنٹمنٹ پمان سوخ کر دیں", "intent": "cancel_appointment", "intent_voice": "reschedule_appointment"}
+{"file": "syn_138.wav", "ref": "میرا نمبر 0333 7654321 ہے، میری اپائنٹمنٹ دیکھ لیں", "hyp": "میرا نمبر، تین سو، تین ساتھ، پچ 4321 ہے، میری اپائنٹمنٹ دیکھیں", "intent": "check_appointment", "intent_voice": "check_appointment"}
+{"file": "syn_139.wav", "ref": "میڈم صحیح ہے", "hyp": "میڈم سہیے", "intent": "confirm", "intent_voice": "confirm"}
+{"file": "syn_140.wav", "ref": "نہیں، کل نہیں آج چاہیے", "hyp": "میں کل نہیں آشاہی", "intent": "deny", "intent_voice": "deny"}
+{"file": "syn_141.wav", "ref": "میڈم مجھے سر درد ہے، کس ڈاکٹر کو دکھاؤں؟", "hyp": "میگر مجھے سرداد ہے، کس تاکٹر کو دکھاون", "intent": "describe_symptom", "intent_voice": "describe_symptom"}
+{"file": "syn_142.wav", "ref": "کیا ڈاکٹر احمد رضا پچیس تاریخ دوپہر دو بجے ہوں گے؟", "hyp": "کیا داکٹر ای مدرزہ پچی، تاریف دو پہ دو بڑے ہوئے", "intent": "doctor_availability", "intent_voice": "doctor_availability"}
+{"file": "syn_143.wav", "ref": "جلدی مدد کریں، بچے نے زہر پی لیا ہے", "hyp": "جلدی مادت کریں، بچوں نے زہر پیلیا ہے", "intent": "emergency", "intent_voice": "emergency"}
+{"file": "syn_144.wav", "ref": "نام حرا", "hyp": "نام حالے", "intent": "inform", "intent_voice": "inform"}
+{"file": "syn_145.wav", "ref": "شوگر بڑھ گئی کیوں ہوتا ہے؟", "hyp": "شوگہ بڑڑی، کیوں ہوتا ہے", "intent": "out_of_scope", "intent_voice": "out_of_scope"}
+{"file": "syn_146.wav", "ref": "بدھ والا وقت سوموار پر منتقل کر دیں", "hyp": "دل، بولا وقت سموار ترمنٹ کی کر دے", "intent": "reschedule_appointment", "intent_voice": "reschedule_appointment"}
+{"file": "syn_147.wav", "ref": "ہڈیوں کے ماہر کا وقت چاہیے 30 نومبر کے لیے", "hyp": "حدیو کے مہر قوق چاہی تیس نمبر کی گئی", "intent": "book_appointment", "intent_voice": "check_appointment"}
+{"file": "syn_148.wav", "ref": "میری جمعرات والی اپائنٹمنٹ منسوخ کر دیں", "hyp": "میری جمارات والے اپائنٹمنٹ مانسوخ کر دے", "intent": "cancel_appointment", "intent_voice": "cancel_appointment"}
+{"file": "syn_149.wav", "ref": "میرا نمبر 03017778899 ہے، میری اپائنٹمنٹ دیکھ لیں مہربانی", "hyp": "میرا نمبر سفر تین سفر، 1777 آر آر، نو نو ہے، میری اپائنٹ مورت دیکھلے، میر بانی", "intent": "check_appointment", "intent_voice": "book_appointment"}

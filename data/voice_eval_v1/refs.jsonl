@@ -1,0 +1,150 @@
+{"file": "syn_000.wav", "text": "گلے میں سوزش ہے اور بخار بھی، کسی ای این ٹی سے ملوا دیں", "intent": "book_appointment", "department": "ent", "source": "freeform", "id": "ff-0016"}
+{"file": "syn_001.wav", "text": "مجھے ہلکی ہلکی کھانسی ہے، کل کسی ڈاکٹر سے وقت مل جائے گا؟", "intent": "book_appointment", "department": "general_physician", "source": "freeform", "id": "ff-0017"}
+{"file": "syn_002.wav", "text": "میرے والد صاحب کو دل کی تکلیف ہے، ڈاکٹر احمد رضا سے ملنا ہے", "intent": "book_appointment", "department": "cardiology", "source": "freeform", "id": "ff-0018"}
+{"file": "syn_003.wav", "text": "لیڈی ڈاکٹر سے ملنا ہے بدھ کو، دوپہر کا وقت ہو", "intent": "book_appointment", "department": "gynecology", "source": "freeform", "id": "ff-0019"}
+{"file": "syn_004.wav", "text": "میرے دو سال کے بیٹے کو الٹیاں ہو رہی ہیں، بچوں کے ڈاکٹر کا وقت چاہیے", "intent": "book_appointment", "department": "pediatrics", "source": "freeform", "id": "ff-0020"}
+{"file": "syn_005.wav", "text": "پاؤں میں موچ آ گئی ہے، آج شام کوئی ہڈیوں کا ڈاکٹر ہوگا؟", "intent": "book_appointment", "department": "orthopedics", "source": "freeform", "id": "ff-0021"}
+{"file": "syn_006.wav", "text": "محمد اکرم کے نام سے پرسوں کا وقت رکھ لیں", "intent": "book_appointment", "department": "none", "source": "freeform", "id": "ff-0022"}
+{"file": "syn_007.wav", "text": "معدے میں بہت جلن رہتی ہے، ڈاکٹر نوید اقبال کا وقت ملے گا؟", "intent": "book_appointment", "department": "gastroenterology", "source": "freeform", "id": "ff-0023"}
+{"file": "syn_008.wav", "text": "بال بہت گر رہے ہیں، جلد کے ماہر سے وقت چاہیے", "intent": "book_appointment", "department": "dermatology", "source": "freeform", "id": "ff-0024"}
+{"file": "syn_009.wav", "text": "مجھے شوگر چیک کروانی ہے، صبح کا وقت دے دیں", "intent": "book_appointment", "department": "general_physician", "source": "freeform", "id": "ff-0025"}
+{"file": "syn_010.wav", "text": "میرا وقت جمعہ کو ہے لیکن اس دن شادی ہے، ہفتے کو کر دیں", "intent": "reschedule_appointment", "department": "none", "source": "freeform", "id": "ff-0039"}
+{"file": "syn_011.wav", "text": "ڈاکٹر حنا جمیل والا وقت اگلے ہفتے کر دیں", "intent": "reschedule_appointment", "department": "none", "source": "freeform", "id": "ff-0042"}
+{"file": "syn_012.wav", "text": "میری اپائنٹمنٹ ختم کر دیں، اب طبیعت بہتر ہے", "intent": "cancel_appointment", "department": "none", "source": "freeform", "id": "ff-0047"}
+{"file": "syn_013.wav", "text": "ڈاکٹر شازیہ کنول والا وقت کینسل کر دیں", "intent": "cancel_appointment", "department": "none", "source": "freeform", "id": "ff-0048"}
+{"file": "syn_014.wav", "text": "ڈاکٹر طارق محمود کب سے کب تک بیٹھتے ہیں؟", "intent": "doctor_availability", "department": "ent", "source": "freeform", "id": "ff-0062"}
+{"file": "syn_015.wav", "text": "ہڈیوں کے ڈاکٹر کون سے دن آتے ہیں؟", "intent": "doctor_availability", "department": "orthopedics", "source": "freeform", "id": "ff-0063"}
+{"file": "syn_016.wav", "text": "رات سے سر میں شدید درد ہے اور آنکھیں جل رہی ہیں", "intent": "describe_symptom", "department": "general_physician", "source": "freeform", "id": "ff-0075"}
+{"file": "syn_017.wav", "text": "دل بہت تیز دھڑکتا ہے سیڑھیاں چڑھتے ہوئے", "intent": "describe_symptom", "department": "cardiology", "source": "freeform", "id": "ff-0076"}
+{"file": "syn_018.wav", "text": "جلد پر سفید دھبے بن گئے ہیں", "intent": "describe_symptom", "department": "dermatology", "source": "freeform", "id": "ff-0077"}
+{"file": "syn_019.wav", "text": "گلے میں کچھ پھنسا ہوا محسوس ہوتا ہے", "intent": "describe_symptom", "department": "ent", "source": "freeform", "id": "ff-0078"}
+{"file": "syn_020.wav", "text": "پیٹ کے نچلے حصے میں درد ہے دو دن سے", "intent": "describe_symptom", "department": "gastroenterology", "source": "freeform", "id": "ff-0079"}
+{"file": "syn_021.wav", "text": "کندھا اوپر نہیں اٹھتا", "intent": "describe_symptom", "department": "orthopedics", "source": "freeform", "id": "ff-0080"}
+{"file": "syn_022.wav", "text": "بچی رات کو بہت روتی ہے اور کان کو ہاتھ لگاتی ہے", "intent": "describe_symptom", "department": "pediatrics", "source": "freeform", "id": "ff-0081"}
+{"file": "syn_023.wav", "text": "حمل کا تیسرا مہینہ ہے، چیک اپ کرانا ہے", "intent": "describe_symptom", "department": "gynecology", "source": "freeform", "id": "ff-0082"}
+{"file": "syn_024.wav", "text": "اتوار گیارہ بجے کے قریب", "intent": "inform", "department": "none", "source": "freeform", "id": "ff-0092"}
+{"file": "syn_025.wav", "text": "مریض شازیہ پروین ہیں، عمر 52 سال", "intent": "inform", "department": "none", "source": "freeform", "id": "ff-0093"}
+{"file": "syn_026.wav", "text": "شام کا کوئی بھی وقت", "intent": "inform", "department": "none", "source": "freeform", "id": "ff-0094"}
+{"file": "syn_027.wav", "text": "ٹھیک ہے، یہی کر دیں", "intent": "confirm", "department": "none", "source": "freeform", "id": "ff-0102"}
+{"file": "syn_028.wav", "text": "جی ہاں بالکل", "intent": "confirm", "department": "none", "source": "freeform", "id": "ff-0103"}
+{"file": "syn_029.wav", "text": "ہاں جی پکا", "intent": "confirm", "department": "none", "source": "freeform", "id": "ff-0106"}
+{"file": "syn_030.wav", "text": "نہیں یہ وقت مناسب نہیں", "intent": "deny", "department": "none", "source": "freeform", "id": "ff-0110"}
+{"file": "syn_031.wav", "text": "نہیں، میرا نام سلمان ہے", "intent": "deny", "department": "none", "source": "freeform", "id": "ff-0111"}
+{"file": "syn_032.wav", "text": "نہیں جی، کل نہیں پرسوں", "intent": "deny", "department": "none", "source": "freeform", "id": "ff-0113"}
+{"file": "syn_033.wav", "text": "السلام و علیکم ورحمۃ اللہ", "intent": "greet", "department": "none", "source": "freeform", "id": "ff-0116"}
+{"file": "syn_034.wav", "text": "بہت مہربانی آپ کی", "intent": "goodbye", "department": "none", "source": "freeform", "id": "ff-0119"}
+{"file": "syn_035.wav", "text": "کلینک اتوار کو بند ہوتا ہے؟", "intent": "clinic_info", "department": "none", "source": "freeform", "id": "ff-0125"}
+{"file": "syn_036.wav", "text": "کیا کارڈ سے پیمنٹ ہو جاتی ہے؟", "intent": "clinic_info", "department": "none", "source": "freeform", "id": "ff-0126"}
+{"file": "syn_037.wav", "text": "میرے بھائی نے بہت سی گولیاں کھا لی ہیں", "intent": "emergency", "department": "none", "source": "freeform", "id": "ff-0132"}
+{"file": "syn_038.wav", "text": "ابو اچانک گر گئے ہیں اور بول نہیں رہے", "intent": "emergency", "department": "none", "source": "freeform", "id": "ff-0133"}
+{"file": "syn_039.wav", "text": "بچے کا سانس رک رہا ہے جلدی کچھ کریں", "intent": "emergency", "department": "none", "source": "freeform", "id": "ff-0136"}
+{"file": "syn_040.wav", "text": "آپ کا نام کیا ہے؟", "intent": "out_of_scope", "department": "none", "source": "freeform", "id": "ff-0140"}
+{"file": "syn_041.wav", "text": "کیا یہ رپورٹ خطرناک ہے؟", "intent": "out_of_scope", "department": "none", "source": "freeform", "id": "ff-0142"}
+{"file": "syn_042.wav", "text": "مجھے کل کسی ڈاکٹر سے ملنا ہے، سینے میں درد کی شکایت ہے", "intent": "book_appointment", "department": "cardiology", "source": "template", "id": "boo_u14-0003"}
+{"file": "syn_043.wav", "text": "میری یکم دسمبر والی اپائنٹمنٹ منسوخ کر دیں", "intent": "cancel_appointment", "department": "none", "source": "template", "id": "can_u00-0009"}
+{"file": "syn_044.wav", "text": "میرا نمبر 03004445566 ہے، میری اپائنٹمنٹ دیکھ لیں", "intent": "check_appointment", "department": "none", "source": "template", "id": "che_u05-0021"}
+{"file": "syn_045.wav", "text": "میڈم پارکنگ کی جگہ ہے؟", "intent": "clinic_info", "department": "none", "source": "template", "id": "cli_u05-0001"}
+{"file": "syn_046.wav", "text": "صحیح ہے جی", "intent": "confirm", "department": "none", "source": "template", "id": "con_u08-0004"}
+{"file": "syn_047.wav", "text": "نہیں، جمعہ نہیں اس جمعے چاہیے", "intent": "deny", "department": "none", "source": "template", "id": "den_u03-0008"}
+{"file": "syn_048.wav", "text": "السلام علیکم، میرے چھوٹے بھائی کی عمر تیس سال ہے، اسے پیٹ میں درد ہے", "intent": "describe_symptom", "department": "gastroenterology", "source": "template", "id": "des_u08-0012"}
+{"file": "syn_049.wav", "text": "کیا ڈاکٹر احمد رضا تین دن بعد تین بجے ہوں گے؟", "intent": "doctor_availability", "department": "cardiology", "source": "template", "id": "doc_u05-0004"}
+{"file": "syn_050.wav", "text": "جلدی مدد کریں، سانس بالکل نہیں آ رہی", "intent": "emergency", "department": "none", "source": "template", "id": "eme_u01-0003"}
+{"file": "syn_051.wav", "text": "شکریہ", "intent": "goodbye", "department": "none", "source": "template", "id": "goo_u02-0000"}
+{"file": "syn_052.wav", "text": "السلام علیکم جی", "intent": "greet", "department": "none", "source": "template", "id": "gre_u02-0000"}
+{"file": "syn_053.wav", "text": "اگلے ہفتے کو", "intent": "inform", "department": "none", "source": "template", "id": "inf_u03-0009"}
+{"file": "syn_054.wav", "text": "السلام علیکم، جوڑوں میں درد کیوں ہوتا ہے؟", "intent": "out_of_scope", "department": "none", "source": "template", "id": "out_u06-0017"}
+{"file": "syn_055.wav", "text": "منگل والا وقت دو دن بعد پر منتقل کر دیں", "intent": "reschedule_appointment", "department": "none", "source": "template", "id": "res_u07-0027"}
+{"file": "syn_056.wav", "text": "بچوں کے ماہر کا وقت چاہیے پچیس تاریخ کے لیے", "intent": "book_appointment", "department": "pediatrics", "source": "template", "id": "boo_u01-0027"}
+{"file": "syn_057.wav", "text": "میری اٹھائیس تاریخ والی اپائنٹمنٹ منسوخ کر دیں", "intent": "cancel_appointment", "department": "none", "source": "template", "id": "can_u00-0024"}
+{"file": "syn_058.wav", "text": "میرا نمبر +92 300 1234567 ہے، میری اپائنٹمنٹ دیکھ لیں مہربانی", "intent": "check_appointment", "department": "none", "source": "template", "id": "che_u05-0009"}
+{"file": "syn_059.wav", "text": "پارکنگ کی جگہ ہے؟", "intent": "clinic_info", "department": "none", "source": "template", "id": "cli_u05-0000"}
+{"file": "syn_060.wav", "text": "سر صحیح ہے", "intent": "confirm", "department": "none", "source": "template", "id": "con_u08-0000"}
+{"file": "syn_061.wav", "text": "نہیں، ہفتہ نہیں 30 نومبر چاہیے", "intent": "deny", "department": "none", "source": "template", "id": "den_u03-0002"}
+{"file": "syn_062.wav", "text": "میرے بیٹے کی عمر ایک سال ہے، اسے بخار ہے جلدی بتا دیں", "intent": "describe_symptom", "department": "pediatrics", "source": "template", "id": "des_u08-0024"}
+{"file": "syn_063.wav", "text": "کیا ڈاکٹر شازیہ کنول کل دوپہر کو ہوں گے؟", "intent": "doctor_availability", "department": "cardiology", "source": "template", "id": "doc_u05-0022"}
+{"file": "syn_064.wav", "text": "جلدی مدد کریں، بچے کو کرنٹ لگ گیا ہے", "intent": "emergency", "department": "none", "source": "template", "id": "eme_u01-0010"}
+{"file": "syn_065.wav", "text": "دو دسمبر کو", "intent": "inform", "department": "none", "source": "template", "id": "inf_u03-0001"}
+{"file": "syn_066.wav", "text": "ناک بند کیوں ہوتا ہے؟", "intent": "out_of_scope", "department": "none", "source": "template", "id": "out_u06-0008"}
+{"file": "syn_067.wav", "text": "جمعہ والا وقت پیر پر منتقل کر دیں", "intent": "reschedule_appointment", "department": "none", "source": "template", "id": "res_u07-0026"}
+{"file": "syn_068.wav", "text": "میڈم جنرل فزیشن کا وقت چاہیے بدھ کے لیے", "intent": "book_appointment", "department": "general_physician", "source": "template", "id": "boo_u01-0018"}
+{"file": "syn_069.wav", "text": "جی میری تین دن بعد والی اپائنٹمنٹ منسوخ کر دیں مہربانی ہو گی", "intent": "cancel_appointment", "department": "none", "source": "template", "id": "can_u00-0002"}
+{"file": "syn_070.wav", "text": "بھائی میرا نمبر 0333 7654321 ہے، میری اپائنٹمنٹ دیکھ لیں", "intent": "check_appointment", "department": "none", "source": "template", "id": "che_u05-0029"}
+{"file": "syn_071.wav", "text": "جی پارکنگ کی جگہ ہے؟", "intent": "clinic_info", "department": "none", "source": "template", "id": "cli_u05-0003"}
+{"file": "syn_072.wav", "text": "بھائی صحیح ہے", "intent": "confirm", "department": "none", "source": "template", "id": "con_u08-0002"}
+{"file": "syn_073.wav", "text": "نہیں، دو دن بعد نہیں اٹھائیس تاریخ چاہیے", "intent": "deny", "department": "none", "source": "template", "id": "den_u03-0023"}
+{"file": "syn_074.wav", "text": "مجھے گیس ہے، کس ڈاکٹر کو دکھاؤں؟", "intent": "describe_symptom", "department": "gastroenterology", "source": "template", "id": "des_u01-0008"}
+{"file": "syn_075.wav", "text": "کیا ڈاکٹر فرحان بٹ اگلے پیر شام کو ہوں گے؟", "intent": "doctor_availability", "department": "gastroenterology", "source": "template", "id": "doc_u05-0027"}
+{"file": "syn_076.wav", "text": "جلدی مدد کریں، امی کو فالج کا حملہ لگ رہا ہے", "intent": "emergency", "department": "none", "source": "template", "id": "eme_u01-0005"}
+{"file": "syn_077.wav", "text": "نام ماہ نور", "intent": "inform", "department": "none", "source": "template", "id": "inf_u07-0024"}
+{"file": "syn_078.wav", "text": "کمر درد کیوں ہوتا ہے؟", "intent": "out_of_scope", "department": "none", "source": "template", "id": "out_u06-0029"}
+{"file": "syn_079.wav", "text": "پرسوں والا وقت آج پر منتقل کر دیں", "intent": "reschedule_appointment", "department": "none", "source": "template", "id": "res_u07-0007"}
+{"file": "syn_080.wav", "text": "بھائی جلد کے ماہر سے صبح سویرے ملنا ہے", "intent": "book_appointment", "department": "dermatology", "source": "template", "id": "boo_u17-0005"}
+{"file": "syn_081.wav", "text": "میری جمعرات والی اپائنٹمنٹ منسوخ کر دیں مہربانی ہو گی", "intent": "cancel_appointment", "department": "none", "source": "template", "id": "can_u00-0027"}
+{"file": "syn_082.wav", "text": "میرا نمبر 03017778899 ہے، میری اپائنٹمنٹ دیکھ لیں", "intent": "check_appointment", "department": "none", "source": "template", "id": "che_u05-0018"}
+{"file": "syn_083.wav", "text": "السلام علیکم، پارکنگ کی جگہ ہے؟", "intent": "clinic_info", "department": "none", "source": "template", "id": "cli_u05-0002"}
+{"file": "syn_084.wav", "text": "بھائی جی بالکل جلدی بتا دیں", "intent": "confirm", "department": "none", "source": "template", "id": "con_u03-0005"}
+{"file": "syn_085.wav", "text": "سر نہیں، اسی ہفتے نہیں اگلے ہفتے چاہیے جلدی بتا دیں", "intent": "deny", "department": "none", "source": "template", "id": "den_u03-0024"}
+{"file": "syn_086.wav", "text": "میرے چھوٹے بھائی کی عمر پچیس سال ہے، اسے خارش ہے", "intent": "describe_symptom", "department": "dermatology", "source": "template", "id": "des_u08-0011"}
+{"file": "syn_087.wav", "text": "کیا ڈاکٹر عثمان غنی جمعہ دوپہر کو ہوں گے؟", "intent": "doctor_availability", "department": "general_physician", "source": "template", "id": "doc_u05-0011"}
+{"file": "syn_088.wav", "text": "جلدی مدد کریں، بہت خون بہہ رہا ہے رک نہیں رہا", "intent": "emergency", "department": "none", "source": "template", "id": "eme_u01-0001"}
+{"file": "syn_089.wav", "text": "نام احمد", "intent": "inform", "department": "none", "source": "template", "id": "inf_u07-0023"}
+{"file": "syn_090.wav", "text": "خارش کیوں ہوتا ہے؟", "intent": "out_of_scope", "department": "none", "source": "template", "id": "out_u06-0028"}
+{"file": "syn_091.wav", "text": "پیر والا وقت پچیس تاریخ پر منتقل کر دیں", "intent": "reschedule_appointment", "department": "none", "source": "template", "id": "res_u07-0020"}
+{"file": "syn_092.wav", "text": "فیملی ڈاکٹر سے ظہر کے بعد ملنا ہے", "intent": "book_appointment", "department": "general_physician", "source": "template", "id": "boo_u17-0025"}
+{"file": "syn_093.wav", "text": "میری اتوار والی اپائنٹمنٹ منسوخ کر دیں جلدی بتا دیں", "intent": "cancel_appointment", "department": "none", "source": "template", "id": "can_u00-0010"}
+{"file": "syn_094.wav", "text": "سر میرا نمبر 03004445566 ہے، میری اپائنٹمنٹ دیکھ لیں", "intent": "check_appointment", "department": "none", "source": "template", "id": "che_u05-0025"}
+{"file": "syn_095.wav", "text": "میڈم صحیح ہے مہربانی ہو گی", "intent": "confirm", "department": "none", "source": "template", "id": "con_u08-0005"}
+{"file": "syn_096.wav", "text": "نہیں، اٹھائیس تاریخ نہیں جمعرات چاہیے", "intent": "deny", "department": "none", "source": "template", "id": "den_u03-0003"}
+{"file": "syn_097.wav", "text": "مجھے قبض ہے، کس ڈاکٹر کو دکھاؤں؟", "intent": "describe_symptom", "department": "gastroenterology", "source": "template", "id": "des_u01-0029"}
+{"file": "syn_098.wav", "text": "کیا ڈاکٹر عدیل قریشی جمعہ ڈھائی بجے ہوں گے؟", "intent": "doctor_availability", "department": "orthopedics", "source": "template", "id": "doc_u05-0024"}
+{"file": "syn_099.wav", "text": "جلدی مدد کریں، ایکسیڈنٹ ہو گیا ہے سر پر چوٹ لگی ہے", "intent": "emergency", "department": "none", "source": "template", "id": "eme_u01-0008"}
+{"file": "syn_100.wav", "text": "ڈاکٹر رابعہ اسلم", "intent": "inform", "department": "none", "source": "template", "id": "inf_u12-0007"}
+{"file": "syn_101.wav", "text": "کان میں درد کیوں ہوتا ہے؟", "intent": "out_of_scope", "department": "none", "source": "template", "id": "out_u06-0019"}
+{"file": "syn_102.wav", "text": "السلام علیکم، بدھ والا وقت اسی ہفتے پر منتقل کر دیں", "intent": "reschedule_appointment", "department": "none", "source": "template", "id": "res_u07-0005"}
+{"file": "syn_103.wav", "text": "مجھے دو دسمبر کسی ڈاکٹر سے ملنا ہے، حمل کا چیک اپ کی شکایت ہے", "intent": "book_appointment", "department": "gynecology", "source": "template", "id": "boo_u14-0010"}
+{"file": "syn_104.wav", "text": "میری جمعہ والی اپائنٹمنٹ منسوخ کر دیں", "intent": "cancel_appointment", "department": "none", "source": "template", "id": "can_u00-0007"}
+{"file": "syn_105.wav", "text": "میرا نمبر 0333 7654321 ہے، میری اپائنٹمنٹ دیکھ لیں شکریہ", "intent": "check_appointment", "department": "none", "source": "template", "id": "che_u05-0005"}
+{"file": "syn_106.wav", "text": "جی بالکل جلدی بتا دیں", "intent": "confirm", "department": "none", "source": "template", "id": "con_u03-0004"}
+{"file": "syn_107.wav", "text": "نہیں، اسی ہفتے نہیں ہفتہ چاہیے", "intent": "deny", "department": "none", "source": "template", "id": "den_u03-0007"}
+{"file": "syn_108.wav", "text": "مجھے جلد خشک ہے، کس ڈاکٹر کو دکھاؤں؟", "intent": "describe_symptom", "department": "dermatology", "source": "template", "id": "des_u01-0017"}
+{"file": "syn_109.wav", "text": "کیا ڈاکٹر شازیہ کنول 30 نومبر دوپہر کو ہوں گے؟", "intent": "doctor_availability", "department": "cardiology", "source": "template", "id": "doc_u05-0013"}
+{"file": "syn_110.wav", "text": "جلدی مدد کریں، دادا جی کو دل کا دورہ پڑا ہے", "intent": "emergency", "department": "none", "source": "template", "id": "eme_u01-0006"}
+{"file": "syn_111.wav", "text": "نام نور فاطمہ", "intent": "inform", "department": "none", "source": "template", "id": "inf_u07-0012"}
+{"file": "syn_112.wav", "text": "جوڑوں میں درد کیوں ہوتا ہے؟", "intent": "out_of_scope", "department": "none", "source": "template", "id": "out_u06-0022"}
+{"file": "syn_113.wav", "text": "سر اسی ہفتے والا وقت سوموار پر منتقل کر دیں", "intent": "reschedule_appointment", "department": "none", "source": "template", "id": "res_u07-0010"}
+{"file": "syn_114.wav", "text": "مجھے 30 نومبر کسی ڈاکٹر سے ملنا ہے، جلد پر دانے کی شکایت ہے", "intent": "book_appointment", "department": "dermatology", "source": "template", "id": "boo_u14-0024"}
+{"file": "syn_115.wav", "text": "بھائی میری یکم دسمبر والی اپائنٹمنٹ منسوخ کر دیں مہربانی", "intent": "cancel_appointment", "department": "none", "source": "template", "id": "can_u00-0005"}
+{"file": "syn_116.wav", "text": "میرا نمبر 0331 2223344 ہے، میری اپائنٹمنٹ دیکھ لیں", "intent": "check_appointment", "department": "none", "source": "template", "id": "che_u05-0022"}
+{"file": "syn_117.wav", "text": "سر جی بالکل", "intent": "confirm", "department": "none", "source": "template", "id": "con_u03-0003"}
+{"file": "syn_118.wav", "text": "نہیں، ہفتہ نہیں جمعہ چاہیے", "intent": "deny", "department": "none", "source": "template", "id": "den_u03-0015"}
+{"file": "syn_119.wav", "text": "مجھے حمل کا الٹراساؤنڈ ہے، کس ڈاکٹر کو دکھاؤں؟", "intent": "describe_symptom", "department": "gynecology", "source": "template", "id": "des_u01-0016"}
+{"file": "syn_120.wav", "text": "کیا ڈاکٹر صوبیہ انور ہفتہ ظہر کے بعد ہوں گے؟", "intent": "doctor_availability", "department": "dermatology", "source": "template", "id": "doc_u05-0021"}
+{"file": "syn_121.wav", "text": "جلدی مدد کریں، دورہ پڑ رہا ہے", "intent": "emergency", "department": "none", "source": "template", "id": "eme_u01-0002"}
+{"file": "syn_122.wav", "text": "ڈاکٹر حنا جمیل", "intent": "inform", "department": "none", "source": "template", "id": "inf_u12-0009"}
+{"file": "syn_123.wav", "text": "گیس کیوں ہوتا ہے؟", "intent": "out_of_scope", "department": "none", "source": "template", "id": "out_u06-0006"}
+{"file": "syn_124.wav", "text": "اگلے پیر والا وقت آج پر منتقل کر دیں", "intent": "reschedule_appointment", "department": "none", "source": "template", "id": "res_u07-0028"}
+{"file": "syn_125.wav", "text": "مجھے ہفتہ کسی ڈاکٹر سے ملنا ہے، پیٹ میں درد کی شکایت ہے", "intent": "book_appointment", "department": "gastroenterology", "source": "template", "id": "boo_u14-0020"}
+{"file": "syn_126.wav", "text": "میری سوموار والی اپائنٹمنٹ منسوخ کر دیں", "intent": "cancel_appointment", "department": "none", "source": "template", "id": "can_u00-0006"}
+{"file": "syn_127.wav", "text": "میرا نمبر 03134567890 ہے، میری اپائنٹمنٹ دیکھ لیں", "intent": "check_appointment", "department": "none", "source": "template", "id": "che_u05-0002"}
+{"file": "syn_128.wav", "text": "صحیح ہے", "intent": "confirm", "department": "none", "source": "template", "id": "con_u08-0001"}
+{"file": "syn_129.wav", "text": "نہیں، اگلے مہینے نہیں اگلے ہفتے چاہیے مہربانی ہو گی", "intent": "deny", "department": "none", "source": "template", "id": "den_u03-0019"}
+{"file": "syn_130.wav", "text": "میرے چھوٹے بھائی کی عمر دو سال ہے، اسے بخار ہے", "intent": "describe_symptom", "department": "pediatrics", "source": "template", "id": "des_u08-0016"}
+{"file": "syn_131.wav", "text": "کیا ڈاکٹر شازیہ کنول پچیس تاریخ صبح دس بجے ہوں گے؟", "intent": "doctor_availability", "department": "cardiology", "source": "template", "id": "doc_u05-0017"}
+{"file": "syn_132.wav", "text": "جلدی مدد کریں، ابو بے ہوش ہو گئے ہیں", "intent": "emergency", "department": "none", "source": "template", "id": "eme_u01-0009"}
+{"file": "syn_133.wav", "text": "جمعہ کو", "intent": "inform", "department": "none", "source": "template", "id": "inf_u03-0000"}
+{"file": "syn_134.wav", "text": "ماہواری کا مسئلہ کیوں ہوتا ہے؟", "intent": "out_of_scope", "department": "none", "source": "template", "id": "out_u06-0015"}
+{"file": "syn_135.wav", "text": "پرسوں والا وقت اس جمعے پر منتقل کر دیں", "intent": "reschedule_appointment", "department": "none", "source": "template", "id": "res_u07-0001"}
+{"file": "syn_136.wav", "text": "مجھے دو دسمبر کسی ڈاکٹر سے ملنا ہے، کمزوری کی شکایت ہے مہربانی ہو گی", "intent": "book_appointment", "department": "general_physician", "source": "template", "id": "boo_u14-0000"}
+{"file": "syn_137.wav", "text": "میری اتوار والی اپائنٹمنٹ منسوخ کر دیں", "intent": "cancel_appointment", "department": "none", "source": "template", "id": "can_u00-0008"}
+{"file": "syn_138.wav", "text": "میرا نمبر 0333 7654321 ہے، میری اپائنٹمنٹ دیکھ لیں", "intent": "check_appointment", "department": "none", "source": "template", "id": "che_u05-0019"}
+{"file": "syn_139.wav", "text": "میڈم صحیح ہے", "intent": "confirm", "department": "none", "source": "template", "id": "con_u08-0003"}
+{"file": "syn_140.wav", "text": "نہیں، کل نہیں آج چاہیے", "intent": "deny", "department": "none", "source": "template", "id": "den_u03-0020"}
+{"file": "syn_141.wav", "text": "میڈم مجھے سر درد ہے، کس ڈاکٹر کو دکھاؤں؟", "intent": "describe_symptom", "department": "general_physician", "source": "template", "id": "des_u01-0019"}
+{"file": "syn_142.wav", "text": "کیا ڈاکٹر احمد رضا پچیس تاریخ دوپہر دو بجے ہوں گے؟", "intent": "doctor_availability", "department": "cardiology", "source": "template", "id": "doc_u05-0006"}
+{"file": "syn_143.wav", "text": "جلدی مدد کریں، بچے نے زہر پی لیا ہے", "intent": "emergency", "department": "none", "source": "template", "id": "eme_u01-0007"}
+{"file": "syn_144.wav", "text": "نام حرا", "intent": "inform", "department": "none", "source": "template", "id": "inf_u07-0006"}
+{"file": "syn_145.wav", "text": "شوگر بڑھ گئی کیوں ہوتا ہے؟", "intent": "out_of_scope", "department": "none", "source": "template", "id": "out_u06-0010"}
+{"file": "syn_146.wav", "text": "بدھ والا وقت سوموار پر منتقل کر دیں", "intent": "reschedule_appointment", "department": "none", "source": "template", "id": "res_u07-0015"}
+{"file": "syn_147.wav", "text": "ہڈیوں کے ماہر کا وقت چاہیے 30 نومبر کے لیے", "intent": "book_appointment", "department": "orthopedics", "source": "template", "id": "boo_u01-0026"}
+{"file": "syn_148.wav", "text": "میری جمعرات والی اپائنٹمنٹ منسوخ کر دیں", "intent": "cancel_appointment", "department": "none", "source": "template", "id": "can_u00-0029"}
+{"file": "syn_149.wav", "text": "میرا نمبر 03017778899 ہے، میری اپائنٹمنٹ دیکھ لیں مہربانی", "intent": "check_appointment", "department": "none", "source": "template", "id": "che_u05-0014"}

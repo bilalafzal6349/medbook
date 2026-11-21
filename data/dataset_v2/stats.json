@@ -1,0 +1,227 @@
+{
+  "train": {
+    "rows": 6238,
+    "intent": {
+      "book_appointment": 1380,
+      "reschedule_appointment": 606,
+      "cancel_appointment": 395,
+      "check_appointment": 400,
+      "doctor_availability": 570,
+      "describe_symptom": 720,
+      "inform": 917,
+      "confirm": 173,
+      "deny": 364,
+      "greet": 16,
+      "goodbye": 14,
+      "clinic_info": 342,
+      "emergency": 115,
+      "out_of_scope": 226
+    },
+    "script": {
+      "roman": 2933,
+      "urdu": 1809,
+      "mixed": 1496
+    },
+    "department": {
+      "gastroenterology": 311,
+      "dermatology": 303,
+      "general_physician": 316,
+      "orthopedics": 255,
+      "gynecology": 222,
+      "ent": 278,
+      "cardiology": 252,
+      "pediatrics": 373,
+      "none": 3928
+    },
+    "source": {
+      "template": 5491,
+      "noise": 747
+    },
+    "slots": {
+      "DATE": 2213,
+      "TIME": 930,
+      "DOCTOR": 1123,
+      "DEPARTMENT": 780,
+      "SYMPTOM": 1470,
+      "PATIENT_NAME": 570,
+      "AGE": 243,
+      "PHONE": 198,
+      "APPOINTMENT_ID": 320
+    }
+  },
+  "val": {
+    "rows": 924,
+    "intent": {
+      "book_appointment": 210,
+      "reschedule_appointment": 90,
+      "cancel_appointment": 90,
+      "check_appointment": 41,
+      "doctor_availability": 90,
+      "describe_symptom": 90,
+      "inform": 120,
+      "confirm": 24,
+      "deny": 48,
+      "greet": 2,
+      "goodbye": 2,
+      "clinic_info": 37,
+      "emergency": 15,
+      "out_of_scope": 65
+    },
+    "script": {
+      "roman": 314,
+      "urdu": 293,
+      "mixed": 317
+    },
+    "department": {
+      "cardiology": 47,
+      "general_physician": 51,
+      "gynecology": 50,
+      "pediatrics": 21,
+      "dermatology": 53,
+      "ent": 56,
+      "gastroenterology": 36,
+      "orthopedics": 46,
+      "none": 564
+    },
+    "source": {
+      "template": 843,
+      "noise": 81
+    },
+    "slots": {
+      "DOCTOR": 150,
+      "DATE": 300,
+      "SYMPTOM": 240,
+      "TIME": 150,
+      "PATIENT_NAME": 150,
+      "APPOINTMENT_ID": 60,
+      "DEPARTMENT": 90,
+      "AGE": 18,
+      "PHONE": 12
+    }
+  },
+  "test": {
+    "rows": 1453,
+    "intent": {
+      "book_appointment": 270,
+      "reschedule_appointment": 120,
+      "cancel_appointment": 120,
+      "check_appointment": 120,
+      "doctor_availability": 120,
+      "describe_symptom": 150,
+      "inform": 207,
+      "confirm": 36,
+      "deny": 126,
+      "greet": 4,
+      "goodbye": 4,
+      "clinic_info": 69,
+      "emergency": 37,
+      "out_of_scope": 70
+    },
+    "script": {
+      "roman": 686,
+      "urdu": 434,
+      "mixed": 333
+    },
+    "department": {
+      "none": 1033,
+      "dermatology": 53,
+      "cardiology": 46,
+      "gastroenterology": 52,
+      "orthopedics": 46,
+      "general_physician": 50,
+      "pediatrics": 87,
+      "gynecology": 48,
+      "ent": 38
+    },
+    "source": {
+      "template": 1276,
+      "noise": 177
+    },
+    "slots": {
+      "PATIENT_NAME": 180,
+      "DATE": 593,
+      "TIME": 359,
+      "DOCTOR": 193,
+      "DEPARTMENT": 150,
+      "SYMPTOM": 270,
+      "APPOINTMENT_ID": 70,
+      "PHONE": 42,
+      "AGE": 90
+    }
+  },
+  "test_freeform": {
+    "rows": 145,
+    "intent": {
+      "book_appointment": 34,
+      "reschedule_appointment": 10,
+      "cancel_appointment": 8,
+      "check_appointment": 6,
+      "doctor_availability": 8,
+      "describe_symptom": 21,
+      "inform": 12,
+      "confirm": 8,
+      "deny": 7,
+      "greet": 4,
+      "goodbye": 4,
+      "clinic_info": 7,
+      "emergency": 8,
+      "out_of_scope": 8
+    },
+    "script": {
+      "roman": 78,
+      "urdu": 42,
+      "mixed": 25
+    },
+    "department": {
+      "general_physician": 7,
+      "cardiology": 7,
+      "dermatology": 7,
+      "orthopedics": 8,
+      "pediatrics": 7,
+      "ent": 7,
+      "gynecology": 6,
+      "gastroenterology": 7,
+      "none": 89
+    },
+    "source": {
+      "freeform": 145
+    },
+    "slots": {
+      "SYMPTOM": 56,
+      "DATE": 41,
+      "DEPARTMENT": 17,
+      "DOCTOR": 16,
+      "TIME": 17,
+      "AGE": 5,
+      "PATIENT_NAME": 8,
+      "PHONE": 5,
+      "APPOINTMENT_ID": 5
+    }
+  },
+  "dialogues": {
+    "count": 600,
+    "task": {
+      "reschedule_appointment": 87,
+      "book_appointment": 372,
+      "emergency": 37,
+      "cancel_appointment": 49,
+      "check_appointment": 55
+    },
+    "style": {
+      "roman": 273,
+      "urdu": 171,
+      "mixed": 156
+    },
+    "avg_turns": 11.3,
+    "user_turns": 3319
+  },
+  "templates": {
+    "total": 434,
+    "by_split": {
+      "test": 69,
+      "val": 46,
+      "train": 319
+    }
+  },
+  "exact_text_overlap_test_vs_train": 0
+}

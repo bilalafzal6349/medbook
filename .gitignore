@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.cache/
+.venv/
+venv/
+*.egg-info/
+
+# Node / Next.js
+node_modules/
+.next/
+next-env.d.ts
+*.tsbuildinfo
+
+# Secrets and local state
+.env
+.env.local
+*.sqlite
+*.db
+
+# Full-size model weights (GitHub limit is 100 MB): commit the *.part* files instead
+results/*/model/joint_xlmr.pt
+results/*/model/joint_xlmr_fp16.pt
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

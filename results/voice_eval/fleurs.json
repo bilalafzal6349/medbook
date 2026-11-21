@@ -1,0 +1,54 @@
+{
+ "runs": [
+  {
+   "model": "tiny",
+   "prompt": false,
+   "noise_snr_db": null,
+   "n": 100,
+   "wer": 0.6546,
+   "cer": 0.2995,
+   "rtf": 0.217,
+   "sec_per_clip": 2.18
+  },
+  {
+   "model": "base",
+   "prompt": false,
+   "noise_snr_db": null,
+   "n": 100,
+   "wer": 0.5032,
+   "cer": 0.2161,
+   "rtf": 0.21,
+   "sec_per_clip": 2.11
+  },
+  {
+   "model": "small",
+   "prompt": false,
+   "noise_snr_db": null,
+   "n": 100,
+   "wer": 0.3724,
+   "cer": 0.1473,
+   "rtf": 0.468,
+   "sec_per_clip": 4.71
+  },
+  {
+   "model": "large-v3-turbo",
+   "prompt": false,
+   "noise_snr_db": null,
+   "n": 100,
+   "wer": 0.2136,
+   "cer": 0.0791,
+   "rtf": 0.552,
+   "sec_per_clip": 5.55
+  },
+  {
+   "model": "medium",
+   "prompt": false,
+   "noise_snr_db": null,
+   "n": 100,
+   "wer": 0.2815,
+   "cer": 0.111,
+   "rtf": 1.015,
+   "sec_per_clip": 10.21
+  }
+ ]
+}

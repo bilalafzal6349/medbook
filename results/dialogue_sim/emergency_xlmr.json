@@ -1,0 +1,15 @@
+{
+  "test": {
+    "emergency_msgs": 37,
+    "recall": 1.0,
+    "other_msgs": 1414,
+    "false_alarm_rate": 0.0
+  },
+  "freeform": {
+    "emergency_msgs": 8,
+    "recall": 1.0,
+    "other_msgs": 137,
+    "false_alarm_rate": 0.036
+  },
+  "engine": "xlmr"
+}

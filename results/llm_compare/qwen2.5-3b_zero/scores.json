@@ -1,0 +1,92 @@
+{
+  "freeform": {
+    "overall": {
+      "n": 145,
+      "intent_acc": 0.4828,
+      "intent_macro_f1": 0.545,
+      "dept_top1_acc": 0.6786,
+      "slot_entity_f1": 0.3061,
+      "slot_relaxed_f1": 0.3799
+    },
+    "mixed": {
+      "n": 25,
+      "intent_acc": 0.6,
+      "intent_macro_f1": 0.5806,
+      "dept_top1_acc": 0.75,
+      "slot_entity_f1": 0.321,
+      "slot_relaxed_f1": 0.4444
+    },
+    "roman": {
+      "n": 78,
+      "intent_acc": 0.4487,
+      "intent_macro_f1": 0.508,
+      "dept_top1_acc": 0.72,
+      "slot_entity_f1": 0.3168,
+      "slot_relaxed_f1": 0.3564
+    },
+    "urdu": {
+      "n": 42,
+      "intent_acc": 0.4762,
+      "intent_macro_f1": 0.4195,
+      "dept_top1_acc": 0.5789,
+      "slot_entity_f1": 0.2708,
+      "slot_relaxed_f1": 0.375
+    },
+    "runtime": {
+      "latency_mean_s": 6.388,
+      "latency_median_s": 6.45,
+      "latency_p95_s": 11.755,
+      "tokens_in_mean": 1213.7,
+      "tokens_cached_in_mean": 0,
+      "tokens_out_mean": 45.0,
+      "invalid_json": 0,
+      "usd_per_message": 0.0,
+      "usd_per_1k_messages": 0.0
+    }
+  },
+  "test": {
+    "overall": {
+      "n": 300,
+      "intent_acc": 0.5367,
+      "intent_macro_f1": 0.5427,
+      "dept_top1_acc": 0.5667,
+      "slot_entity_f1": 0.4236,
+      "slot_relaxed_f1": 0.5037
+    },
+    "mixed": {
+      "n": 68,
+      "intent_acc": 0.4559,
+      "intent_macro_f1": 0.4703,
+      "dept_top1_acc": 0.875,
+      "slot_entity_f1": 0.3061,
+      "slot_relaxed_f1": 0.4082
+    },
+    "roman": {
+      "n": 143,
+      "intent_acc": 0.6224,
+      "intent_macro_f1": 0.6012,
+      "dept_top1_acc": 0.3103,
+      "slot_entity_f1": 0.4868,
+      "slot_relaxed_f1": 0.5439
+    },
+    "urdu": {
+      "n": 89,
+      "intent_acc": 0.4607,
+      "intent_macro_f1": 0.3951,
+      "dept_top1_acc": 0.5676,
+      "slot_entity_f1": 0.404,
+      "slot_relaxed_f1": 0.5051
+    },
+    "runtime": {
+      "latency_mean_s": 7.231,
+      "latency_median_s": 7.075,
+      "latency_p95_s": 11.88,
+      "tokens_in_mean": 1213.9,
+      "tokens_cached_in_mean": 0,
+      "tokens_out_mean": 49.4,
+      "invalid_json": 0,
+      "usd_per_message": 0.0,
+      "usd_per_1k_messages": 0.0
+    }
+  }
+}

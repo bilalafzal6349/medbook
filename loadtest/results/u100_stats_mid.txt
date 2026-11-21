@@ -1,0 +1,5 @@
+medbook-reminders-1 0.00% 25.18MiB / 15.71GiB
+medbook-frontend-1 0.00% 32.42MiB / 15.71GiB
+medbook-backend-1 16.96% 123.3MiB / 15.71GiB
+medbook-db-1 1.71% 42.49MiB / 15.71GiB
+medbook-redis-1 6.00% 4.391MiB / 15.71GiB

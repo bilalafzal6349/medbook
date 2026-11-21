@@ -1,0 +1,30 @@
+{
+  "overall": {
+    "n": 167,
+    "intent_acc": 0.994,
+    "intent_macro_f1": 0.9863,
+    "dept_top1_acc": 0.9895,
+    "slot_entity_f1": 1.0
+  },
+  "mixed": {
+    "n": 42,
+    "intent_acc": 1.0,
+    "intent_macro_f1": 1.0,
+    "dept_top1_acc": 1.0,
+    "slot_entity_f1": 1.0
+  },
+  "roman": {
+    "n": 89,
+    "intent_acc": 0.9888,
+    "intent_macro_f1": 0.9651,
+    "dept_top1_acc": 0.9811,
+    "slot_entity_f1": 1.0
+  },
+  "urdu": {
+    "n": 36,
+    "intent_acc": 1.0,
+    "intent_macro_f1": 1.0,
+    "dept_top1_acc": 1.0,
+    "slot_entity_f1": 1.0
+  }
+}

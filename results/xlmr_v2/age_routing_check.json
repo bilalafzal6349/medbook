@@ -1,0 +1,26 @@
+{
+  "xlmr_final": {
+    "over_12": {
+      "n": 30,
+      "dept_acc": 0.0,
+      "said_pediatrics": 30
+    },
+    "12_or_under": {
+      "n": 30,
+      "dept_acc": 1.0,
+      "said_pediatrics": 30
+    }
+  },
+  "xlmr_v2": {
+    "over_12": {
+      "n": 30,
+      "dept_acc": 0.9667,
+      "said_pediatrics": 1
+    },
+    "12_or_under": {
+      "n": 30,
+      "dept_acc": 1.0,
+      "said_pediatrics": 30
+    }
+  }
+}

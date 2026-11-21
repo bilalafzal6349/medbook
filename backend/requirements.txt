@@ -1,0 +1,21 @@
+# Core backend (Python 3.10+). The baseline NLU is trained on first start (about 30 s) and cached.
+fastapi>=0.110
+uvicorn>=0.29
+python-multipart>=0.0.9
+pydantic>=2.5
+scikit-learn>=1.3
+sklearn-crfsuite>=0.5
+joblib>=1.3
+pytest>=8.0
+
+# XLM-R (used automatically when results/*/model has weights, e.g. results/xlmr_final/model)
+#   pip install torch transformers sentencepiece
+# Optional: voice (voice.py). Speech -> text with Whisper; spoken Urdu replies use torch + transformers (above)
+#   pip install faster-whisper "av<16" soundfile
+
+# Deployment: PostgreSQL (when DATABASE_URL is set) and Redis sessions (when REDIS_URL is set).
+# Not needed for tests or the SQLite laptop demo; the Docker image always installs them.
+psycopg[binary]>=3.1
+psycopg_pool>=3.2
+redis>=5.0
+httpx>=0.27

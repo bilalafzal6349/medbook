@@ -1,0 +1,89 @@
+# MedBook full stack:  cp .env.example .env  (change the passwords)  then  docker compose up --build
+#   http://localhost:3000        patient chat
+#   http://localhost:3000/admin  staff schedule + reminder log (token = MEDBOOK_ADMIN_TOKEN)
+#   http://localhost:8000/docs   API
+name: medbook
+
+x-backend-env: &backend-env
+  DATABASE_URL: postgresql://${POSTGRES_USER:-medbook}:${POSTGRES_PASSWORD:-medbook}@db:5432/${POSTGRES_DB:-medbook}
+  REDIS_URL: redis://redis:6379/0
+  MEDBOOK_ADMIN_TOKEN: ${MEDBOOK_ADMIN_TOKEN:-change-me}
+  MEDBOOK_REMINDER_PROVIDER: ${MEDBOOK_REMINDER_PROVIDER:-log}
+  MEDBOOK_SMS_WEBHOOK: ${MEDBOOK_SMS_WEBHOOK:-}
+  TWILIO_ACCOUNT_SID: ${TWILIO_ACCOUNT_SID:-}
+  TWILIO_AUTH_TOKEN: ${TWILIO_AUTH_TOKEN:-}
+  TWILIO_FROM: ${TWILIO_FROM:-}
+  MEDBOOK_NLU: ${MEDBOOK_NLU:-}
+  MEDBOOK_WHISPER: ${MEDBOOK_WHISPER:-large-v3-turbo}   # small = fallback for small machines
+  MEDBOOK_WHISPER_LANG: ${MEDBOOK_WHISPER_LANG:-ur}
+  MEDBOOK_TTS: ${MEDBOOK_TTS:-1}
+  MEDBOOK_VOICE_PRELOAD: ${MEDBOOK_VOICE_PRELOAD:-0}
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-medbook}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-medbook}
+      POSTGRES_DB: ${POSTGRES_DB:-medbook}
+      TZ: Asia/Karachi
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U \"$$POSTGRES_USER\" -d \"$$POSTGRES_DB\""]
+      interval: 5s
+      retries: 20
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "60", "1", "--maxmemory", "256mb", "--maxmemory-policy", "volatile-lru"]
+    volumes: [redisdata:/data]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 20
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      args:
+        WITH_XLMR: ${WITH_XLMR:-1}
+        WITH_VOICE: ${WITH_VOICE:-0}
+    image: medbook-backend
+    environment:
+      <<: *backend-env
+      WEB_CONCURRENCY: ${WEB_CONCURRENCY:-1}
+    volumes: [hfcache:/hf-cache]          # Hugging Face downloads (XLM-R config, Whisper, TTS) survive rebuilds
+    depends_on:
+      db: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    ports: ["8000:8000"]
+    restart: unless-stopped
+
+  reminders:                               # sends due SMS reminders every 5 minutes
+    image: medbook-backend
+    command: ["sh", "-c", "exec python reminders.py --loop --every $${MEDBOOK_REMINDER_EVERY:-300}"]
+    environment:
+      <<: *backend-env
+      MEDBOOK_REMINDER_EVERY: ${MEDBOOK_REMINDER_EVERY:-300}
+    depends_on:
+      backend: {condition: service_healthy}   # backend creates and seeds the tables first
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        BACKEND_URL: http://backend:8000
+    image: medbook-frontend
+    depends_on:
+      backend: {condition: service_healthy}
+    ports: ["3000:3000"]
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+  redisdata:
+  hfcache:
