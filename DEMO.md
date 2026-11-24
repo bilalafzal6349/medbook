@@ -143,7 +143,7 @@ Full results on this machine took about 3 hours of CPU; one model on one set tak
 
 ```bash
 cd medbook/backend
-python -m pytest -q                  # all tests (71 dialogue/parsing + deployment tests, see DEPLOY.md): date/time parsing, full dialogues, safety rules (pass with both engines)
+python -m pytest -q                  # all tests (103: dialogue/parsing + deployment tests, see DEPLOY.md): date/time parsing, full dialogues, safety rules (pass with both engines)
 python simulate.py --n 300           # simulated users, openers from held-out test templates
 python simulate.py --n 300 --freeform   # openers from the free-form set (harder)
 python emergency_check.py            # 1122 recall and false alarms on held-out messages
@@ -206,20 +206,130 @@ everything and sends the user to 1122. When only the model says emergency, the b
 then offers a booking with the routed department in case it is not urgent. Without this, XLM-R's false alarms
 (for example "khana hazam nahi hota") were dead ends.
 
-## 5. A 5-minute script for the mid evaluation
+## 5. Mid-term demo script (about 10 minutes)
 
-1. `salam, mujhe kal skin specialist ko dikhana hai` → `subah` → `2` → `Ali Raza` → `0300-1234567` → `ji haan`.
-   Booking appears in the Appointments tab with its MB number.
-2. New chat: `mere bete ko 3 din se bukhar hai`. Routed to Pediatrics from the symptom and the word "bete".
-3. New chat, Urdu script: `مجھے کل دل کے ڈاکٹر سے ملنا ہے` → `صبح دس بجے` → `میرا نام فاطمہ نور ہے` →
-   `03211234567` → correct it at the confirmation: `نہیں، پرسوں کر دیں` → `جی ہاں`.
-4. `MB-1042 cancel karni hai` → `haan`. Then `MB-7781 ko reschedule karna hai` → `agle somwar` → `subah` → `1` → `haan`.
-5. `Dr Kamran kab baithte hain?` (answered from the duty table, with the next free slot).
-6. Mid-booking, type `abbu behosh ho gaye hain`: the task is dropped and the user is sent to 1122.
-7. Ask for a Sunday (`29 tareekh`): the bot says the clinic is closed and offers real alternatives.
+Checked end to end on 24 Nov 2026 with XLM-R and Whisper large-v3-turbo on a 4-core CPU: every step below gave the
+reply shown in its screenshot (`results/demo_screens/midterm/`).
 
-Seed bookings for the demo: MB-1042, MB-2210, MB-0087, MB-3315, MB-4521, MB-7781 (dates are set relative to the
-day the database is built). `python clinic_db.py --reset` restores them.
+### Before the panel arrives (5 minutes, do it once)
+
+```bash
+cd medbook/backend
+python clinic_db.py --reset                    # fresh schedule + seed bookings MB-1042, MB-7781, ...
+MEDBOOK_VOICE_PRELOAD=1 uvicorn main:app --port 8000   # Windows: set MEDBOOK_VOICE_PRELOAD=1 first
+# second terminal
+cd medbook/frontend && npm run dev
+```
+
+1. Open http://localhost:3000/api/health and check `"nlu_engine": "xlmr"` and `"voice": true`.
+   (No torch? It says `baseline` and everything still works, just with the weaker model.)
+2. Open two tabs: http://localhost:3000 (patient chat) and http://localhost:3000/admin (staff schedule).
+3. Send one throw-away message and press **Mic** once, so the models are warm and the browser has mic permission.
+   Then press **New chat**.
+4. If the laptop is slow, start the backend with `MEDBOOK_WHISPER=small` (about 4 s per voice message instead of 5 to 12).
+
+Press **New chat** between steps. Keep the **Under the hood** panel visible: it is what shows the panel that this is
+an NLU model plus a dialogue manager, not a script.
+
+### Step 1. Book in Roman Urdu (the core task)
+
+| You type | Bot answers |
+| --- | --- |
+| `salam, mujhe kal skin specialist ko dikhana hai` | Asks for a time (department and date already understood) |
+| `subah` | Three real free slots with Dr. Nadia Hussain |
+| `2` | Asks the patient's name |
+| `Ali Raza` | Asks the mobile number |
+| `0300-1234567` | Summary: doctor, day, time, name, phone. "Book kar doon?" |
+| `ji haan` | "Ho gaya! Aapka booking number MB-xxxx hai." |
+
+Point at: intent and slots per message in the right panel, the DB insert in the trace, the new row in the Appointments tab.
+
+![Step 1](results/demo_screens/midterm/1_book_roman.png)
+
+### Step 2. Department routing from a symptom
+
+`mere bete ko 3 din se bukhar hai` goes to **Pediatrics**: the symptom (fever) plus the child word "bete".
+The trace shows the model and the keyword/age rule agreeing. Optional extra: `mere bhai ki umar 45 saal hai, bukhar hai`
+goes to General Physician, because a stated adult age overrides the child word.
+
+![Step 2](results/demo_screens/midterm/2_route_pediatrics.png)
+
+### Step 3. Urdu script, with a correction at the end
+
+`مجھے کل دل کے ڈاکٹر سے ملنا ہے` → `صبح دس بجے` → `میرا نام فاطمہ نور ہے` → `03211234567` →
+`نہیں، پرسوں کر دیں` → `جی ہاں`
+
+The bot answers in Urdu script because the user writes in it. At the summary the user changes the day; the bot rebuilds
+the plan for the day after tomorrow and asks again, and only books after the yes.
+
+![Step 3](results/demo_screens/midterm/3_book_urdu_correction.png)
+
+### Step 4. Cancel and reschedule an existing booking
+
+`MB-1042 cancel karni hai` → `haan`, then `MB-7781 ko reschedule karna hai` → `agle somwar` → `subah` → `1` → `haan`.
+Both changes show in the Appointments tab (cancelled row struck through).
+
+![Step 4](results/demo_screens/midterm/4_cancel_reschedule.png)
+
+### Step 5. Doctor availability
+
+`Dr Kamran kab baithte hain?` is answered from the duty table with the next free slot, and the booking stays open
+with that doctor ("Booking karni ho to din bata dein").
+
+![Step 5](results/demo_screens/midterm/5_doctor_availability.png)
+
+### Step 6. Emergency safety rule
+
+`mujhe kal ENT ka appointment chahiye`, then in the middle of the booking `abbu behosh ho gaye hain`.
+The booking is dropped and the user is told to call 1122. Say: the emergency rule runs before the model, so it cannot be
+missed by a classification error; 45 of 45 held-out emergency messages got this advice.
+
+![Step 6](results/demo_screens/midterm/6_emergency.png)
+
+### Step 7. A day the clinic is closed
+
+`kal skin doctor chahiye` → `itwar ko`. The bot says at once that Sunday is closed and offers real slots on the next
+open day. (A doctor who does not work that weekday gets the same treatment: `Dr Sobia Anwar se parson milna hai`.)
+
+![Step 7](results/demo_screens/midterm/7_sunday_closed.png)
+
+### Step 8. Voice: speak Urdu, hear the answer
+
+Press **Mic**, say for example *گلے میں سوزش ہے اور بخار بھی، کسی ای این ٹی سے ملوا دیں*, press **Stop**.
+The transcript appears as the user's message with the Whisper model and timing under it, routing goes to ENT, and the
+Urdu reply is read aloud (🔊 replays it). Then continue the booking by voice or by typing.
+Have the typed sentence ready to paste in case the room is noisy.
+
+![Step 8](results/demo_screens/midterm/8_voice.png)
+
+### Step 9. What the clinic staff sees, and reminders
+
+Show the **Appointments** tab in the chat, then the `/admin` tab: go to tomorrow (**Next day**), tick
+**Booked slots only**, and the bookings made in the demo are there. Press **Send due reminders now**: the day-before SMS
+text for each booking appears in the log (provider `log` in the demo; Twilio or a webhook in deployment, see `DEPLOY.md`).
+
+![Step 9](results/demo_screens/midterm/9_appointments_tab.png)
+![Step 9, staff page](results/demo_screens/midterm/10_admin.png)
+
+### If something goes wrong on the day
+
+| Problem | Fix |
+| --- | --- |
+| Header says `NLU: baseline` | torch not installed; `pip install torch transformers sentencepiece` and restart. The demo still works with baseline |
+| `voice off` | `pip install faster-whisper "av<16" soundfile` and restart. The first run downloads about 1.8 GB, so do it at home |
+| Voice is very slow | restart with `MEDBOOK_WHISPER=small` |
+| A seed booking (MB-1042) was already cancelled | `python clinic_db.py --reset` (or the reset button on `/admin`) |
+| No free slots / odd dates | dates are relative to today; reset the database on the morning of the demo |
+| Mic does nothing | the browser only allows the mic on `localhost` or https; open http://localhost:3000, not the LAN IP |
+
+### Numbers to quote when asked
+
+- Intent accuracy on free-form messages: 0.66 (baseline) → 0.83 (XLM-R); department 0.91, 0.98 with the keyword backstop.
+- Whole simulated dialogues: 99.7% task success with XLM-R on free-form openers, 0 invented booking numbers.
+- Voice: Whisper large-v3-turbo, 21% WER on real Urdu speech (FLEURS); 12/12 spoken emergencies still caught.
+- Tests: `python -m pytest -q` (103 tests).
+
+Seed bookings: MB-1042, MB-2210, MB-0087, MB-3315, MB-4521, MB-7781 (dates relative to the day the database is built).
 
 ## How the dialogue manager decides (for the report)
 

@@ -111,14 +111,16 @@ def test_emergency_recall(dm, text):
 
 
 def test_sunday_closed(dm):
-    r = talk(dm, ["29 tareekh ko general physician chahiye", "subah"])[-1]   # 29 Nov 2026 is a Sunday
+    # 29 Nov 2026 is a Sunday: said at once, without asking for a time first
+    r = talk(dm, ["29 tareekh ko general physician chahiye"])[-1]
     assert "band" in r["reply"]
+    assert dm.sessions["t"].awaiting in ("slot_choice", "offer_one")
     assert all(o for o in dm.sessions["t"].offers)
 
 
 def test_doctor_off_day(dm):
     # Dr. Waseem Akram (ENT, evening) works Mon/Wed/Fri only; 24 Nov is a Tuesday
-    r = talk(dm, ["Dr Waseem Akram se kal appointment chahiye", "shaam ko"])[-1]
+    r = talk(dm, ["Dr Waseem Akram se kal appointment chahiye"])[-1]
     assert "nahi baithte" in r["reply"]
 
 
@@ -137,3 +139,10 @@ def test_out_of_scope_reasks(dm):
     rs = talk(dm, ["mujhe kal ENT specialist chahiye", "bukhar ki dawai konsi lun?"])
     assert "doctor se mashwara" in rs[-1]["reply"]
     assert rs[-1]["state"]["task"] == "book"
+
+
+def test_department_name_as_whisper_writes_it():
+    # Whisper often drops the first letter of "ای این ٹی" (ENT); the name must still be read as ENT
+    from dialogue import department_from_name
+    assert department_from_name("این ٹی") == "ent"
+    assert department_from_name("ای این ٹی") == "ent"
