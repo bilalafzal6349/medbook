@@ -94,7 +94,7 @@ def department_from_name(value):
                     return key
     keywords = [
         ("cardiology", r"dil|heart|cardio|دل|قلب"), ("dermatology", r"skin|jild|derma|جلد|سکن"),
-        ("ent", r"\bent\b|kaan|naak|gala|throat|کان|ناک|گلے|ای این ٹی"),
+        ("ent", r"\bent\b|kaan|naak|gala|throat|کان|ناک|گلے|(ای )?این ٹی"),
         ("gastroenterology", r"pait|pet\b|gastro|maid|stomach|پیٹ|معد|گیسٹرو"),
         ("orthopedics", r"haddi|bone|ortho|jor|ہڈی|ہڈیوں|آرتھو"),
         ("gynecology", r"gyn|lady|aurat|women|گائنی|لیڈی|خواتین"),
@@ -434,8 +434,13 @@ class DialogueManager:
             st.awaiting = "DATE"
             return [say("ask_DATE", L)]
         if not st.time:
-            st.awaiting = "TIME"
-            return [say("ask_TIME", L)]
+            if not self._works_on(st):
+                # closed / off day (e.g. a Sunday): say so now, not after asking for a time
+                st.time = parse_time("koi bhi")
+                trace.append("asked day is off for everyone: no time question, offering other days")
+            else:
+                st.awaiting = "TIME"
+                return [say("ask_TIME", L)]
         msgs = []
         if not st.chosen:
             res = self._find_slot(st, trace)
@@ -456,6 +461,15 @@ class DialogueManager:
         return [say("confirm_book", L, doctor=self._doc_name(doc, L), dept=self._dept_name(doc["department"], L, short=True),
                     day=fmt_date(c["day"], L), time=fmt_time(c["start_min"], L),
                     name=st.slots["PATIENT_NAME"], phone=st.slots["PHONE"])]
+
+    def _works_on(self, st):
+        """False when the asked exact day is one the doctor (or every doctor of the department) is off."""
+        d = st.date
+        if not d or not d.exact:
+            return True
+        doctors = [st.doctor_id] if st.doctor_id else [x["id"] for x in self.clinic.doctors(st.department)]
+        wds = {x["weekday"] for did in doctors for x in self.clinic.duty(did)}
+        return d.start.weekday() in wds
 
     def _find_slot(self, st, trace):
         """Set st.chosen when the request can be met as asked, else offer alternatives.
@@ -627,8 +641,13 @@ class DialogueManager:
             st.awaiting = "DATE"
             return [say("ask_DATE", L)]
         if not st.time:
-            st.awaiting = "TIME"
-            return [say("ask_TIME", L)]
+            if not self._works_on(st):
+                # closed / off day (e.g. a Sunday): say so now, not after asking for a time
+                st.time = parse_time("koi bhi")
+                trace.append("asked day is off for everyone: no time question, offering other days")
+            else:
+                st.awaiting = "TIME"
+                return [say("ask_TIME", L)]
         msgs = []
         if not st.chosen:
             res = self._find_slot(st, trace)
@@ -719,9 +738,16 @@ class DialogueManager:
                 st.date = dv
                 st.slots["DATE"] = slots["DATE"]
             st.chosen = None
-            st.awaiting = "DATE" if not st.date else "TIME"
-            out.append(say("book_hint", L) if not st.date else say("ask_TIME", L))
+            tv = parse_time(slots["TIME"]) if "TIME" in slots else None
+            if tv:
+                st.time = tv
+                st.slots["TIME"] = slots["TIME"]
             trace.append("availability answered; booking kept open with this doctor/department")
+            if not st.date:
+                st.awaiting = "DATE"
+                out.append(say("book_hint", L))
+            else:   # a day was named: carry on as a booking (off day -> alternatives now, else time or offers)
+                out.extend(self._advance_book(st, trace))
         return out
 
     def _faq(self, st, text, slots, p):

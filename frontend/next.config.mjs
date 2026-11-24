@@ -4,7 +4,8 @@ const BACKEND = process.env.BACKEND_URL || "http://127.0.0.1:8000";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",   // self-contained server for the Docker image (npm run dev is unaffected)
+  output: "standalone",
+  devIndicators: false,   // no Next.js badge over the chat during the demo   // self-contained server for the Docker image (npm run dev is unaffected)
   async rewrites() {
     return [{ source: "/api/:path*", destination: `${BACKEND}/api/:path*` }];
   },
