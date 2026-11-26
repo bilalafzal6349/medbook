@@ -20,7 +20,7 @@ from lexicons import DEPARTMENT_NAMES
 from normalize import ANY_TIME_RE, DateValue, TimeValue, parse_date, parse_time
 from routing import keyword_department, route
 from sessions import make_store
-from replies import CLINIC_FACTS, FAQ, FAQ_DEFAULT, STATUS, detect_lang, fmt_date, fmt_days, fmt_time, say
+from replies import CLINIC_FACTS, FAQ, FAQ_DEFAULT, R, STATUS, detect_lang, fmt_date, fmt_days, fmt_time, say
 
 ROUTE_CONF_MIN = 0.40          # below this, route to General Physician instead of a specialist
 SEARCH_DAYS = 14               # how far ahead to look for alternatives
@@ -37,6 +37,26 @@ TASK_OF_INTENT = {"book_appointment": "book", "cancel_appointment": "cancel",
 YES_RE = re.compile(r"^\W*(ji|jee|g|haan|han|haa|ha|yes|yeah|yep|ok|okay|theek|thik|thk|sahi|done|kar do|kar dein|"
                     r"zaroor|bilkul|confirm|جی|ہاں|ٹھیک|درست|بالکل|ضرور|صحیح|اوکے)\b", re.I)
 NO_RE = re.compile(r"^\W*(nahi|nai|nhi|nahin|no|nope|mat|na|cancel karo rehne do|rehne do|نہیں|نا|مت|رہنے دیں)\b", re.I)
+# "nahi pata", "pata nahi", "yaad nahi", "don't know": the patient cannot answer the pending question
+DONT_KNOW_RE = re.compile(
+    r"\b(nahi|nai|nhi|nae|nahin|ni)\s*(pata|pta|patta|maloom|malum|maloum|yaad|yad)\b"
+    r"|\b(pata|pta|patta|maloom|malum|yaad|yad)\s*(nahi|nai|nhi|nae|nahin|ni)\b"
+    r"|\bdon'?t know\b|\bdont know\b|\bidk\b|\bno idea\b|\bnot sure\b"
+    r"|نہیں پت|پتا نہیں|پتہ نہیں|معلوم نہیں|یاد نہیں|نہیں معلوم", re.I)
+# "kya hua?", "kea ho gea ha", "samjha nahi", "kya matlab", "ye kya kar rahe ho": the patient is lost
+CONFUSED_RE = re.compile(
+    r"\b(kya|kia|kea|kiya|kyaa|ky)\s+(hua|huwa|hoa|howa|ho\s*g[ae]+[iy]?a|hogaya|hogya|hogea|matlab|mtlb|"
+    r"kar\s*rah[aei]|kr\s*rah[aei]|keh\s*rah[aei]|bol\s*rah[aei]|pooch\s*rah[aei]|puch\s*rah[aei]|chahiye\s*\?)"
+    r"|\b(samajh?|samjh?|samaj)\s*(a|i|aya|aaya|ai)?\s*(nahi|nai|nhi|nae|nahin|ni)\b"
+    r"|\b(samjha|samjhi|samjhe)\s*(nahi|nai|nhi|nae|nahin|ni)\b|\bsamjhao\b|\bsamjha\s*(do|dein|den)\b"
+    r"|\bwhat\s*\??$|^\W*what\b|\bhuh\b|\bconfused\b|\bi don'?t understand\b|^\s*\?+\s*$"
+    r"|کیا ہوا|سمجھ نہیں|سمجھا نہیں|کیا مطلب|کیا کر رہے", re.I)
+# "rehne do", "chhoro", "shuru se", "restart": drop the current task (not "cancel", which starts a cancellation)
+STOP_RE = re.compile(r"\b(rehne do|rehne dein|rehnay do|chhoro|chhodo|chodo|chor do|chhor do|band karo|"
+                     r"start over|restart|shuru se|dobara shuru|stop)\b|رہنے دیں|رہنے دو|چھوڑ دیں|دوبارہ شروع", re.I)
+SLOT_QUESTIONS = ("PATIENT_NAME", "PHONE", "APPOINTMENT_ID", "DATE", "TIME", "DEPARTMENT")
+STUCK_ESCAPE_AFTER = 2         # failed answers to the same question before the way out is offered
+
 ORDINALS = [  # offer index -> words
     r"\b(1|pehla|pehli|pehle wala|pehle wali|first|ek|one)\b|پہلا|پہلی|پہلے والا|ایک|۱",
     r"\b(2|doosra|dusra|doosri|dusri|second|two)\b|دوسرا|دوسری|۲",
@@ -59,11 +79,15 @@ class State:
     offers: list = field(default_factory=list)
     awaiting: str = None             # confirm | slot_choice | <SLOT> | task_for_ref
     turns: int = 0
+    stuck_on: str = None             # the question the patient could not answer last turn
+    stuck: int = 0                   # how many times in a row
+    last_reply: str = None           # repetition guard: never send the same reply 3 times in a row
+    repeats: int = 0
 
     def reset_task(self):
-        lang, turns = self.lang, self.turns
+        lang, turns, last, rep = self.lang, self.turns, self.last_reply, self.repeats
         self.__init__()
-        self.lang, self.turns = lang, turns
+        self.lang, self.turns, self.last_reply, self.repeats = lang, turns, last, rep
 
     def public(self, clinic):
         """JSON-safe view for the UI debug panel."""
@@ -121,8 +145,9 @@ class DialogueManager:
         p = self.nlu.parse(text)
         trace = []                           # what the manager decided, for the debug panel
         out = self._turn(st, text, p, trace, session_id)
-        self.sessions.save(session_id, st)
         reply = "\n".join(x for x in out if x)
+        reply = self._guard_repeat(st, reply, trace)
+        self.sessions.save(session_id, st)
         return {"reply": reply, "nlu": p, "state": st.public(self.clinic), "trace": trace}
 
     def reset(self, session_id):
@@ -184,6 +209,13 @@ class DialogueManager:
                              f"(model said {intent})")
                 intent = "describe_symptom"
                 p = dict(p, department=d, department_conf=conf)
+
+        # 2d) the patient is stuck on the pending question: "nahi pata", "kya hua?", "rehne do"
+        r = self._stuck(st, text, intent, slots, trace)
+        if r:
+            return r
+        if st.awaiting != st.stuck_on:
+            st.stuck_on, st.stuck = None, 0
 
         # 3) small talk that does not touch the task
         if intent == "goodbye" and not slots:
@@ -283,6 +315,96 @@ class DialogueManager:
             return notes[1:]
         return notes + self._advance(st, trace)
 
+    # ================================================================== stuck / confused patients
+    def _stuck(self, st, text, intent, slots, trace):
+        """Answers that are not a value for the pending question. Returns reply lines, or None."""
+        L = st.lang
+        if not st.task:
+            return None
+        if STOP_RE.search(text) and not slots:
+            trace.append("stop words: task dropped")
+            st.reset_task()
+            return [say("aborted", L)]
+        if not st.awaiting:
+            return None
+        if CONFUSED_RE.search(text) and not slots:
+            trace.append(f"patient confused while waiting for {st.awaiting}: explain the step")
+            return self._explain(st, escape=self._bump_stuck(st) >= STUCK_ESCAPE_AFTER)
+        if st.awaiting not in SLOT_QUESTIONS or st.awaiting in slots:
+            return None
+        dont_know = bool(DONT_KNOW_RE.search(text))
+        bare_no = intent == "deny" and not slots and st.awaiting in ("PATIENT_NAME", "PHONE", "APPOINTMENT_ID") \
+            and len(text.split()) <= 4
+        if not (dont_know or bare_no) or self._changes_slots(slots) and not dont_know:
+            return None
+        a = st.awaiting
+        trace.append(f"no value for {a} ('{text}'): {'dont know' if dont_know else 'bare no'}")
+        # questions with a sensible default: go on without an answer
+        if a == "DATE" and dont_know:
+            today = now_pkt().date()
+            st.date, st.chosen = DateValue(today, today + timedelta(days=SEARCH_DAYS - 1), "any"), None
+            trace.append("'dont know' day read as the nearest free day")
+            return [say("dontknow_DATE", L)] + self._advance(st, trace)
+        if a == "TIME" and dont_know:
+            st.time, st.chosen = parse_time("koi bhi"), None
+            st.slots["TIME"] = "koi bhi"
+            trace.append("'dont know' time read as any time")
+            return [say("dontknow_TIME", L)] + self._advance(st, trace)
+        if a == "DEPARTMENT" and dont_know:
+            st.department, st.dept_source, st.doctor_id, st.chosen = "general_physician", "fallback", None, None
+            trace.append("'dont know' department: General Physician")
+            return [say("dontknow_DEPARTMENT", L)] + self._advance(st, trace)
+        # name / phone / booking number cannot be skipped: say why, and after a few tries offer a way out
+        n = self._bump_stuck(st)
+        out = [say(f"need_{a}", L)]
+        if n >= STUCK_ESCAPE_AFTER:
+            out.append(say("way_out", L, phone=CLINIC_FACTS["phone"]))
+        return out
+
+    def _bump_stuck(self, st):
+        if st.stuck_on == st.awaiting:
+            st.stuck += 1
+        else:
+            st.stuck_on, st.stuck = st.awaiting, 1
+        return st.stuck
+
+    def _explain(self, st, escape=False):
+        """Say what the bot is doing, what it already has, and what it needs now."""
+        L = st.lang
+        out = [say(f"explain_task_{st.task}", L)]
+        have = []
+        if st.chosen:
+            doc = self.clinic.doctor(st.chosen["doctor_id"])
+            have.append(f"{self._doc_name(doc, L)}, {fmt_date(st.chosen['day'], L)} {fmt_time(st.chosen['start_min'], L)}")
+        elif st.department:
+            have.append(self._dept_name(st.department, L))
+        if st.ref:
+            have.append(st.ref)
+        if have:
+            out.append(say("explain_have", L, items="; ".join(have)))
+        key = f"explain_{st.awaiting}"
+        out.append(say(key, L) if key in R else (self._reask(st) or [say("not_understood", L)])[0])
+        if escape:
+            out.append(say("way_out", L, phone=CLINIC_FACTS["phone"]))
+        return out
+
+    def _guard_repeat(self, st, reply, trace):
+        """The same reply must never go out three times in a row: the third time, explain instead."""
+        if reply and reply == st.last_reply:
+            st.repeats += 1
+        else:
+            st.repeats = 0
+        if st.repeats >= 2:
+            trace.append("repetition guard: same reply a third time, explaining instead")
+            if st.task and st.awaiting:
+                lines = self._explain(st, escape=True)
+            else:
+                lines = [say("not_understood", st.lang), say("way_out", st.lang, phone=CLINIC_FACTS["phone"])]
+            reply = "\n".join(lines)
+            st.repeats = 0
+        st.last_reply = reply
+        return reply
+
     def _change_request(self, st, text, intent, trace):
         """'time badal dein', 'din change karna hai', 'doctor koi aur': clear that part and ask again."""
         L = st.lang
@@ -335,7 +457,7 @@ class DialogueManager:
         notes = []
         # --- awaiting a bare answer the model could not tag ("Ali", "kal", "koi bhi")
         if st.awaiting == "PATIENT_NAME" and "PATIENT_NAME" not in slots and intent in ("inform", "book_appointment") \
-                and not slots and 1 <= len(p["text"].split()) <= 4:
+                and not slots and 1 <= len(p["text"].split()) <= 4 and self._looks_like_name(p["text"]):
             slots["PATIENT_NAME"] = re.sub(r"^(mera naam|naam|name|my name is|میرا نام)\s+|\s+(hai|ہے)$", "",
                                            p["text"].strip(), flags=re.I).strip(" .,")
             trace.append("bare answer taken as PATIENT_NAME")
@@ -404,6 +526,9 @@ class DialogueManager:
             trace.append(f"time '{slots['TIME']}' -> {tv.start}-{tv.end} min")
 
         # --- patient details
+        if "PATIENT_NAME" in slots and not self._looks_like_name(slots["PATIENT_NAME"]):
+            trace.append(f"'{slots['PATIENT_NAME']}' is not a name; not stored")
+            slots.pop("PATIENT_NAME")
         for k in ("PATIENT_NAME", "AGE", "SYMPTOM"):
             if k in slots:
                 st.slots[k] = slots[k]
@@ -762,6 +887,18 @@ class DialogueManager:
         return [say(key, st.lang)] if key else []
 
     # ================================================================== names
+    @staticmethod
+    def _looks_like_name(value):
+        """'nahi pata', 'kya hua', 'no', '???' are never stored as a patient's name."""
+        v = value.strip()
+        if not v or not re.search(r"\w", v) or re.search(r"\d", v):
+            return False
+        if DONT_KNOW_RE.search(v) or CONFUSED_RE.search(v) or STOP_RE.search(v):
+            return False
+        if NO_RE.search(v) and len(v.split()) <= 2 and not re.search(r"\b(naam|name)\b|نام", v, re.I):
+            return False
+        return True
+
     def _doc_name(self, doc, L):
         return doc["name_urdu"] if L == "urdu" else doc["name_roman"]
 

@@ -137,3 +137,61 @@ def test_out_of_scope_reasks(dm):
     rs = talk(dm, ["mujhe kal ENT specialist chahiye", "bukhar ki dawai konsi lun?"])
     assert "doctor se mashwara" in rs[-1]["reply"]
     assert rs[-1]["state"]["task"] == "book"
+
+
+# ---------------------------------------------------------------- stuck / confused patients
+TO_NAME = ["kal dil ke doctor ka appointment chahiye", "subah 11 baje"]
+
+
+def test_dont_know_name_explains_and_never_stores_it(dm):
+    rs = talk(dm, TO_NAME + ["nahi pata", "nahi pata mujhy", "nae pata mujhy"])
+    assert rs[1]["state"]["awaiting"] == "PATIENT_NAME"
+    for r in rs[2:]:
+        assert "baghair booking nahi ho sakti" in r["reply"]
+        assert r["state"]["awaiting"] == "PATIENT_NAME"
+        assert "PATIENT_NAME" not in r["state"]["slots"]
+    assert "rehne do" not in rs[2]["reply"]          # first try: just the reason
+    assert "rehne do" in rs[3]["reply"] and "call" in rs[3]["reply"]   # then a way out
+
+
+def test_confused_question_explains_step_not_out_of_scope(dm):
+    for q in ["kea ho gea ha", "kya hua", "samjha nahi", "ye kea kr raha ha"]:
+        dm.reset("c")
+        r = talk(dm, TO_NAME + [q], sid="c")[-1]
+        assert "Main aap ki appointment book kar raha hoon" in r["reply"], q
+        assert "Dawai ya tashkhees" not in r["reply"], q
+        assert "naam" in r["reply"] and r["state"]["awaiting"] == "PATIENT_NAME", q
+
+
+def test_same_reply_never_three_times_in_a_row(dm):
+    rs = talk(dm, TO_NAME + ["nahi pata"] * 6)
+    replies = [r["reply"] for r in rs]
+    for a, b, c in zip(replies, replies[1:], replies[2:]):
+        assert not (a == b == c), a
+
+
+def test_stop_words_drop_the_booking(dm):
+    r = talk(dm, TO_NAME + ["nahi pata", "rehne do"])[-1]
+    assert "koi booking nahi ki gayi" in r["reply"]
+    assert r["state"]["task"] is None
+
+
+def test_name_after_dont_know_still_books(dm):
+    rs = talk(dm, TO_NAME + ["nahi pata", "Ali Raza", "03001234567", "haan"])
+    assert rs[3]["state"]["slots"].get("PATIENT_NAME") == "Ali Raza"
+    assert refs_in(rs[-1]["reply"])
+    assert_no_invented_refs(dm, rs)
+
+
+def test_dont_know_phone_explains(dm):
+    r = talk(dm, TO_NAME + ["Ali Raza", "pata nahi"])[-1]
+    assert "Mobile number ke baghair booking nahi ho sakti" in r["reply"]
+    assert r["state"]["awaiting"] == "PHONE"
+
+
+def test_dont_know_time_and_department_use_defaults(dm):
+    r = talk(dm, ["kal appointment chahiye", "pata nahi"])[-1]
+    assert r["state"]["department"] == "general_physician"
+    dm.reset("t2")
+    r = talk(dm, ["kal dil ke doctor ka appointment chahiye", "pata nahi"], sid="t2")[-1]
+    assert r["state"]["awaiting"] != "TIME"

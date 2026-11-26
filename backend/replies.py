@@ -91,6 +91,59 @@ R = {
                  "urdu": "اس بکنگ کے ساتھ کیا کرنا ہے: چیک، منسوخ یا تبدیل؟"},
     "ask_change": {"roman": "Theek hai, abhi kuch save nahi kiya. Kya badalna hai: din, waqt ya doctor?",
                    "urdu": "ٹھیک ہے، ابھی کچھ محفوظ نہیں کیا۔ کیا تبدیل کرنا ہے: دن، وقت یا ڈاکٹر؟"},
+    # ---- patient cannot answer / is confused
+    "need_PATIENT_NAME": {
+        "roman": "Patient ke naam ke baghair booking nahi ho sakti, kyunke booking aur doctor ki list mein naam likha jata hai. "
+                 "Jis ka appointment hai us ka naam likh dein (sirf pehla naam bhi chalega, jaise: Ali).",
+        "urdu": "مریض کے نام کے بغیر بکنگ نہیں ہو سکتی، کیونکہ بکنگ اور ڈاکٹر کی فہرست میں نام لکھا جاتا ہے۔ "
+                "جس کی اپائنٹمنٹ ہے اس کا نام لکھ دیں (صرف پہلا نام بھی چلے گا، جیسے: علی)۔"},
+    "need_PHONE": {
+        "roman": "Mobile number ke baghair booking nahi ho sakti, isi number par booking ki tasdeeq aur reminder aata hai. "
+                 "Koi bhi chalta hua number likh dein (03xx-xxxxxxx).",
+        "urdu": "موبائل نمبر کے بغیر بکنگ نہیں ہو سکتی، اسی نمبر پر بکنگ کی تصدیق اور یاد دہانی آتی ہے۔ "
+                "کوئی بھی چالو نمبر لکھ دیں (03xx-xxxxxxx)۔"},
+    "need_APPOINTMENT_ID": {
+        "roman": "Koi baat nahi. Booking number yaad nahi to wo mobile number likh dein jis se booking ki thi, main dhoond loon ga.",
+        "urdu": "کوئی بات نہیں۔ بکنگ نمبر یاد نہیں تو وہ موبائل نمبر لکھ دیں جس سے بکنگ کی تھی، میں ڈھونڈ لوں گا۔"},
+    "dontknow_DATE": {"roman": "Koi baat nahi, main sab se qareeb khali din dekh leta hoon.",
+                      "urdu": "کوئی بات نہیں، میں سب سے قریب خالی دن دیکھ لیتا ہوں۔"},
+    "dontknow_TIME": {"roman": "Koi baat nahi, main koi bhi khali waqt dekh leta hoon.",
+                      "urdu": "کوئی بات نہیں، میں کوئی بھی خالی وقت دیکھ لیتا ہوں۔"},
+    "dontknow_DEPARTMENT": {"roman": "Koi baat nahi, pehle General Physician ko dikha dein, wo zaroorat ho to specialist ko refer kar denge.",
+                            "urdu": "کوئی بات نہیں، پہلے جنرل فزیشن کو دکھا دیں، وہ ضرورت ہو تو اسپیشلسٹ کو ریفر کر دیں گے۔"},
+    "way_out": {"roman": "Agar abhi ye nahi bata sakte to \"rehne do\" likh dein, booking rok doon ga aur aap baad mein dobara kar sakte hain. "
+                         "Ya clinic ke staff se baat karne ke liye {phone} par call karein.",
+                "urdu": "اگر ابھی یہ نہیں بتا سکتے تو \"رہنے دیں\" لکھ دیں، میں بکنگ روک دوں گا اور آپ بعد میں دوبارہ کر سکتے ہیں۔ "
+                        "یا کلینک کے عملے سے بات کرنے کے لیے {phone} پر کال کریں۔"},
+    "explain_task_book": {"roman": "Main aap ki appointment book kar raha hoon.", "urdu": "میں آپ کی اپائنٹمنٹ بک کر رہا ہوں۔"},
+    "explain_task_cancel": {"roman": "Main aap ki booking cancel karne mein madad kar raha hoon.",
+                            "urdu": "میں آپ کی بکنگ منسوخ کرنے میں مدد کر رہا ہوں۔"},
+    "explain_task_reschedule": {"roman": "Main aap ki booking ka din/waqt badalne mein madad kar raha hoon.",
+                                "urdu": "میں آپ کی بکنگ کا دن/وقت بدلنے میں مدد کر رہا ہوں۔"},
+    "explain_task_check": {"roman": "Main aap ki booking check kar raha hoon.", "urdu": "میں آپ کی بکنگ چیک کر رہا ہوں۔"},
+    "explain_have": {"roman": "Ab tak: {items}.", "urdu": "اب تک: {items}۔"},
+    "explain_PATIENT_NAME": {
+        "roman": "Ab sirf patient ka naam chahiye, kyunke naam ke baghair booking nahi ho sakti. Jaise: Ali, ya Fatima Khan.",
+        "urdu": "اب صرف مریض کا نام چاہیے، کیونکہ نام کے بغیر بکنگ نہیں ہو سکتی۔ جیسے: علی، یا فاطمہ خان۔"},
+    "explain_PHONE": {
+        "roman": "Ab mobile number chahiye, isi par booking ki tasdeeq aur reminder aata hai. Jaise: 0300-1234567.",
+        "urdu": "اب موبائل نمبر چاہیے، اسی پر بکنگ کی تصدیق اور یاد دہانی آتی ہے۔ جیسے: 0300-1234567۔"},
+    "explain_DATE": {"roman": "Ab ye batayen ke kis din aana hai. Jaise: kal, parson, Monday. Pata na ho to \"koi bhi\" likh dein.",
+                     "urdu": "اب یہ بتائیں کہ کس دن آنا ہے۔ جیسے: کل، پرسوں، پیر۔ معلوم نہ ہو تو \"کوئی بھی\" لکھ دیں۔"},
+    "explain_TIME": {"roman": "Ab ye batayen ke kis waqt aana hai. Jaise: subah, shaam, 5 baje. Pata na ho to \"koi bhi\" likh dein.",
+                     "urdu": "اب یہ بتائیں کہ کس وقت آنا ہے۔ جیسے: صبح، شام، پانچ بجے۔ معلوم نہ ہو تو \"کوئی بھی\" لکھ دیں۔"},
+    "explain_DEPARTMENT": {"roman": "Ab ye batayen ke kis doctor ko dikhana hai, ya apni takleef likh dein (jaise: sar dard, bukhar). "
+                                    "Pata na ho to main General Physician ke paas bhej doon ga.",
+                           "urdu": "اب یہ بتائیں کہ کس ڈاکٹر کو دکھانا ہے، یا اپنی تکلیف لکھ دیں (جیسے: سر درد، بخار)۔ "
+                                   "معلوم نہ ہو تو میں جنرل فزیشن کے پاس بھیج دوں گا۔"},
+    "explain_APPOINTMENT_ID": {"roman": "Ab booking number chahiye (MB-xxxx). Yaad nahi to booking wala mobile number likh dein.",
+                               "urdu": "اب بکنگ نمبر چاہیے (MB-xxxx)۔ یاد نہیں تو بکنگ والا موبائل نمبر لکھ دیں۔"},
+    "explain_confirm": {"roman": "Upar likhi booking save karne se pehle aap ki haan chahiye. \"Haan\" likhein to book kar doon, "
+                                 "\"nahi\" likhein to kuch badal sakte hain.",
+                        "urdu": "اوپر لکھی بکنگ محفوظ کرنے سے پہلے آپ کی ہاں چاہیے۔ \"ہاں\" لکھیں تو بک کر دوں، "
+                                "\"نہیں\" لکھیں تو کچھ بدل سکتے ہیں۔"},
+    "explain_slot_choice": {"roman": "Upar khali slots ki list hai. Jo theek lage us ka number likh dein (1, 2, 3), ya koi aur din bata dein.",
+                            "urdu": "اوپر خالی اوقات کی فہرست ہے۔ جو ٹھیک لگے اس کا نمبر لکھ دیں (1، 2، 3)، یا کوئی اور دن بتا دیں۔"},
     # ---- bad values
     "bad_DATE": {"roman": "Ye din samajh nahi aaya ({value}). Jaise: kal, parson, Monday, 25 tareekh.",
                  "urdu": "یہ دن سمجھ نہیں آیا ({value})۔ جیسے: کل، پرسوں، پیر، پچیس تاریخ۔"},
