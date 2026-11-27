@@ -15,6 +15,8 @@ Success is checked in the database, not in the bot's words:
     reschedule  the goal booking moved to another day/time
 
     python simulate.py --n 300                 # writes ../results/dialogue_sim/<engine>.json
+    python simulate.py --n 300 --dm llm        # same users, LLM dialogue manager (llm_agent.py), needs an API key
+                                               # writes <engine>_llm.json with token counts and cost
 """
 import argparse
 import json
@@ -22,6 +24,7 @@ import os
 import random
 import sys
 import tempfile
+import time
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -77,9 +80,9 @@ def with_ref(row, ref):
     return t
 
 
-def run_one(rng, nlu, pool, openers, task, script):
+def run_one(rng, nlu, pool, openers, task, script, make_dm=None):
     clinic = Clinic(Path(tempfile.mkdtemp()) / "c.db")
-    dm = DialogueManager(nlu, clinic)
+    dm = make_dm(nlu, clinic) if make_dm else DialogueManager(nlu, clinic)
     ref = rng.choice(SEED_BOOKINGS)[0]
     before = clinic.appointment(ref)
     sid = "sim"
@@ -96,8 +99,10 @@ def run_one(rng, nlu, pool, openers, task, script):
         text = with_ref(opener, ref)
     log, r = [], None
     for _ in range(MAX_TURNS):
+        t0 = time.time()
         r = dm.handle(sid, text)
-        log.append({"user": text, "bot": r["reply"], "intent": r["nlu"]["intent"], "awaiting": r["state"]["awaiting"]})
+        log.append({"user": text, "bot": r["reply"], "intent": r["nlu"]["intent"], "awaiting": r["state"]["awaiting"],
+                    "ms": round((time.time() - t0) * 1000), "tools": [c["name"] for c in r.get("tool_calls", [])]})
         a, t = r["state"]["awaiting"], r["state"]["task"]
         if t is None and a is None:
             break
@@ -136,7 +141,8 @@ def run_one(rng, nlu, pool, openers, task, script):
     from routing import CHILD_MAX_AGE, age_years
     age = age_years(opener["text"])
     noisy = gold_dept == "pediatrics" and age is not None and age > CHILD_MAX_AGE   # adult labelled pediatrics
-    return {"task": task, "script": script, "ok": ok, "noisy_label": noisy, "routed": routed, "turns": len(log),
+    usage = getattr(dm.sessions.get(sid), "usage", None)
+    return {"task": task, "script": script, "ok": ok, "usage": usage, "noisy_label": noisy, "routed": routed, "turns": len(log),
             "invented_refs": invented, "gold_dept": gold_dept, "log": log}
 
 
@@ -146,6 +152,9 @@ def main():
     ap.add_argument("--seed", type=int, default=7)
     ap.add_argument("--freeform", action="store_true", help="take booking openers from the free-form set")
     ap.add_argument("--out", default=str(HERE.parent / "results" / "dialogue_sim"))
+    ap.add_argument("--dm", choices=["rules", "llm"], default="rules", help="dialogue manager to test")
+    ap.add_argument("--price_in", type=float, default=0.10, help="USD per 1M input tokens (Haiku 5.5)")
+    ap.add_argument("--price_out", type=float, default=0.50, help="USD per 1M output tokens (Haiku 5.5)")
     a = ap.parse_args()
     data = HERE.parent / "data" / "dataset_v2"
     # openers come only from the held-out test split; short answers ("kal", "Ali", "0300...") fall back
@@ -153,12 +162,20 @@ def main():
     pool = Pool(load(data / "test.jsonl"), backup=[Pool(load(data / "val.jsonl")), Pool(load(data / "train.jsonl"))])
     openers = Pool(load(data / "test_freeform.jsonl")) if a.freeform else Pool(load(data / "test.jsonl"))
     nlu = NLU(Clinic(Path(tempfile.mkdtemp()) / "x.db").doctors())
+    make_dm = None
+    if a.dm == "llm":
+        from llm_agent import LLMDialogueManager, make_provider
+        provider = make_provider()
+        make_dm = lambda n, c: LLMDialogueManager(n, c, provider)   # noqa: E731
     rng = random.Random(a.seed)
     res = []
     for i in range(a.n):
         task = rng.choices(["book", "cancel", "reschedule"], weights=[70, 15, 15])[0]
         script = rng.choice(["roman", "roman", "urdu", "mixed"])
-        res.append(run_one(rng, nlu, pool, openers, task, script))
+        res.append(run_one(rng, nlu, pool, openers, task, script, make_dm))
+        if a.dm == "llm":
+            print(f"[{i + 1}/{a.n}] {task} {script}: {'ok' if res[-1]['ok'] else 'FAIL'} in {res[-1]['turns']} turns",
+                  flush=True)
 
     def summ(rows):
         return {"n": len(rows), "success": round(sum(r["ok"] for r in rows) / len(rows), 3) if rows else None,
@@ -172,10 +189,22 @@ def main():
               "by_task": {t: summ([r for r in res if r["task"] == t]) for t in ("book", "cancel", "reschedule")},
               "by_script": {s: summ([r for r in res if r["script"] == s]) for s in ("roman", "urdu", "mixed")},
               "invented_booking_numbers": sum(len(r["invented_refs"]) for r in res),
+              "turn_ms_median": sorted(e["ms"] for r in res for e in r["log"])[sum(len(r["log"]) for r in res) // 2],
               "failure_last_awaiting": Counter(r["log"][-1]["awaiting"] or "none" for r in res if not r["ok"]).most_common()}
+    if a.dm == "llm":
+        u = Counter()
+        for r in res:
+            u.update(r["usage"] or {})
+        tin = u["input"] + u["cache_read"] * 0.1 + u["cache_write"] * 1.25   # cache reads 10%, writes 125%
+        report["dm"] = "llm"
+        report["llm_model"] = provider.model
+        report["llm_usage"] = dict(u)
+        report["llm_calls_per_dialogue"] = round(u["llm_calls"] / a.n, 1)
+        report["cost_usd"] = round((tin * a.price_in + u["output"] * a.price_out) / 1e6, 4)
+        report["cost_usd_per_1000_dialogues"] = round(report["cost_usd"] * 1000 / a.n, 2)
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
-    name = f"{nlu.engine_name}{'_freeform' if a.freeform else ''}"
+    name = f"{nlu.engine_name}{'_llm' if a.dm == 'llm' else ''}{'_freeform' if a.freeform else ''}"
     (out / f"{name}.json").write_text(json.dumps(report, indent=2, ensure_ascii=False))
     with open(out / f"{name}_failures.jsonl", "w", encoding="utf-8") as f:
         for r in res:
