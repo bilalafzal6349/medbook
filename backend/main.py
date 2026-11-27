@@ -5,6 +5,7 @@
 Endpoints
     GET  /api/health                  which NLU engine is loaded, voice on/off
     POST /api/chat    {session_id, text}   -> reply, NLU output, dialogue state, decision trace
+                                          (+ tool_calls in LLM mode, see llm_agent.py)
     POST /api/reset   {session_id}
     POST /api/voice   multipart: audio (+ session_id)  -> transcript + same as /api/chat  (voice.py, Whisper)
     POST /api/tts     {text}  Urdu-script text -> audio/wav  (voice.py, MMS-TTS)
@@ -32,7 +33,7 @@ import clinic_db
 import reminders
 import voice as vc
 from clinic_db import Clinic
-from dialogue import DialogueManager
+from llm_agent import make_dialogue_manager
 from nlu import NLU
 from replies import fmt_time
 
@@ -42,7 +43,7 @@ app.add_middleware(CORSMiddleware, allow_origins=os.environ.get("MEDBOOK_CORS", 
 
 clinic = Clinic()
 nlu = NLU(clinic.doctors())
-dm = DialogueManager(nlu, clinic)
+dm = make_dialogue_manager(nlu, clinic)   # LLM if an API key is set (MEDBOOK_DM), else rule-based
 
 # ----------------------------------------------------------------------------- voice (optional, see voice.py)
 vc.set_vocabulary([d.get("name_urdu") for d in clinic.doctors()])
@@ -72,7 +73,8 @@ def jsonable(x):
 
 @app.get("/api/health")
 def health():
-    return {"ok": True, "nlu_engine": nlu.engine_name,
+    return {"ok": True, "nlu_engine": nlu.engine_name, "dm": dm.mode,
+            "llm_model": getattr(getattr(dm, "provider", None), "model", None),
             "model_dir": getattr(nlu.engine, "model_dir", None),
             "voice": vc.asr_available(), "tts": vc.tts_available(), "whisper_model": vc.WHISPER_MODEL,
             "db": clinic.db.describe(), "sessions": dm.sessions.describe(),

@@ -34,6 +34,43 @@ once). Point at another folder with `MEDBOOK_MODEL_DIR`, or force the baseline w
 **No web UI needed for a quick try:** `python chat_cli.py --debug` chats in the terminal and prints what the
 model understood and what the dialogue manager decided.
 
+### LLM mode (optional): let an LLM run the conversation
+
+By default the rule-based dialogue manager (`dialogue.py`) runs, so the demo works offline. Set an API key and an
+LLM runs the conversation instead (`llm_agent.py`). XLM-R still parses every message first, and the LLM gets its
+intent, department and slots as hints.
+
+```bash
+pip install anthropic
+export ANTHROPIC_API_KEY=sk-ant-...          # Windows: set ANTHROPIC_API_KEY=...
+uvicorn main:app --port 8000                 # /api/health now says "dm": "llm"
+python chat_cli.py --debug "mujhe kal skin specialist chahiye"   # shows the tool calls too
+```
+
+| Setting | Default | Meaning |
+| --- | --- | --- |
+| `MEDBOOK_DM` | `auto` | `auto`: LLM if a key is set, else rules. `llm` or `rules` forces one |
+| `MEDBOOK_LLM_PROVIDER` | `anthropic` | `openai` = any OpenAI-compatible server (Gemini, Groq, local Ollama) |
+| `MEDBOOK_LLM_MODEL` | `claude-haiku-5-5` | about $0.10 / $0.50 per million tokens in / out |
+| `MEDBOOK_LLM_EFFORT` | `low` | thinking effort (Claude); low keeps replies fast |
+| `MEDBOOK_LLM_BASE_URL`, `MEDBOOK_LLM_API_KEY` | | for `openai`, e.g. `http://localhost:11434/v1` with `qwen2.5:7b` |
+
+What the LLM can and cannot do. It talks to the patient and calls tools: `search_slots`, `list_doctors`,
+`find_appointment`, `clinic_info`, `propose_booking` / `propose_cancel` / `propose_reschedule` and `confirm_pending`.
+The code keeps these guards, whatever the LLM says:
+
+- An emergency keyword stops the turn before the LLM is called and sends the fixed 1122 reply.
+- A booking can only use a `slot_id` that `search_slots` returned in this chat and that is still free.
+- Writing is two steps. `propose_*` checks the request (valid phone, booking exists and is not past, same
+  department for a reschedule), and the system always shows the user a fixed summary. `confirm_pending` writes only
+  if the user's very next message is a yes (same yes/no rules as the rule-based manager, or XLM-R "confirm").
+- Any MB-xxxx number in the reply that is not in the database is removed. The real number from the insert is
+  always added to the reply.
+- If the LLM call fails (no network, quota), the user gets a "try again" reply and the turn is dropped.
+
+The side panel shows the XLM-R output, every tool call with its result, and the guards that fired.
+Compare the two managers with `simulate.py --dm llm` and `dm_compare.py` (section 4).
+
 ## 2. Frontend (Node 18.18+)
 
 ```bash
@@ -205,6 +242,23 @@ non-emergencies are 3.6% with XLM-R and 0.7% with the baseline. Failed dialogues
 everything and sends the user to 1122. When only the model says emergency, the bot still gives the 1122 advice first,
 then offers a booking with the routed department in case it is not urgent. Without this, XLM-R's false alarms
 (for example "khana hazam nahi hota") were dead ends.
+
+### Rule-based vs LLM dialogue manager (`simulate.py --dm llm`, `dm_compare.py`)
+
+The same simulated users (same seed, openers and answers) talk to the LLM manager, and success is again checked in
+the database. The LLM tells the simulator what it is waiting for through the `awaiting` field of its JSON reply.
+`simulate.py` also records turn time, LLM calls and tokens, and the cost per 1000 dialogues.
+
+```bash
+python simulate.py --n 300 --dm llm              # about $1 on Haiku 5.5
+python simulate.py --n 300 --dm llm --freeform
+python dm_compare.py                             # table in ../results/dialogue_sim/llm_vs_rules.md
+```
+
+Note for the report: this simulated user was written for the rule manager (it answers exactly what was asked, in
+template language), so it is an easy test for both. The LLM's advantage is expected on messages the rules
+did not plan for (several requests in one message, changing your mind, side questions), which the simulator
+does not produce. Try those by hand in the demo and save the transcripts.
 
 ## 5. A 5-minute script for the mid evaluation
 

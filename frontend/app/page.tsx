@@ -19,17 +19,33 @@ type ChatResponse = {
   nlu: NLU;
   state: Record<string, unknown>;
   trace: string[];
+  tool_calls?: ToolCall[];
+  mode?: "llm";
   transcript?: string;
   asr?: { model: string; audio_s: number; asr_ms: number };
 };
+type ToolCall = { name: string; input: Record<string, unknown>; output: unknown; error?: boolean };
 type Msg = { who: "user" | "bot"; text: string; meta?: string; emergency?: boolean; voice?: boolean };
 type Appt = {
   ref: string; doctor: string; department: string; day: string; time: string;
   patient: string; phone: string; status: string; source: string;
 };
-type Health = { nlu_engine: string; voice: boolean; tts?: boolean; whisper_model?: string; now: string };
+type Health = { nlu_engine: string; dm?: string; llm_model?: string | null; voice: boolean; tts?: boolean; whisper_model?: string; now: string };
 
 const MAX_REC_S = 30;
+
+function summarizeTool(c: ToolCall): string {
+  const o = c.output as Record<string, unknown> | null;
+  if (!o || typeof o !== "object") return String(o);
+  if (typeof o.error === "string") return o.error;
+  if (Array.isArray(o.slots)) return `${o.slots.length} slot(s): ` +
+    (o.slots as { slot_id: string; day: string; time: string }[]).map((s) => `${s.slot_id} ${s.day} ${s.time}`).join("; ");
+  if (Array.isArray(o.appointments)) return `${o.appointments.length} booking(s)`;
+  if (Array.isArray(o.doctors)) return `${o.doctors.length} doctor(s)`;
+  if (typeof o.ref === "string") return `ok, ${o.ref}`;
+  if (o.ok) return "ok";
+  return JSON.stringify(o).slice(0, 120);
+}
 
 const EXAMPLES = [
   "salam, mujhe kal skin specialist ko dikhana hai",
@@ -214,6 +230,8 @@ export default function Home() {
           </div>
           <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
             {health && <span className="badge">NLU: {health.nlu_engine}</span>}
+            {health?.dm && <span className="badge" title={health.llm_model || "rule-based dialogue manager"}>
+              DM: {health.dm === "llm" ? `LLM (${health.llm_model})` : "rules"}</span>}
             {health && <span className={`badge ${health.voice ? "" : "off"}`}
               title={health.voice ? `Whisper ${health.whisper_model}` : "pip install faster-whisper on the backend"}>
               voice {health.voice ? "on" : "off"}</span>}
@@ -287,7 +305,15 @@ export default function Home() {
                   ))}</span>
                   {Object.keys(n.rules).length > 0 && (<><span>rules</span><span>{JSON.stringify(n.rules)}</span></>)}
                 </div>
-                <h3>Dialogue manager</h3>
+                {last.tool_calls && last.tool_calls.length > 0 && (<>
+                  <h3>LLM tool calls</h3>
+                  <ol className="trace">{last.tool_calls.map((c, i) => (
+                    <li key={i} dir="auto" title={JSON.stringify(c.output, null, 1)}>
+                      <b>{c.name}</b>({JSON.stringify(c.input)}){c.error ? " ✗ " : " → "}
+                      {summarizeTool(c)}
+                    </li>))}</ol>
+                </>)}
+                <h3>{last.mode === "llm" ? "Guards and decisions" : "Dialogue manager"}</h3>
                 {last.trace.length ? <ol className="trace">{last.trace.map((t, i) => <li key={i} dir="auto">{t}</li>)}</ol>
                   : <p className="empty">No decisions this turn.</p>}
                 <h3>Dialogue state</h3>

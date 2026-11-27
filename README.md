@@ -2,6 +2,8 @@
 
 > **Chatbot demo** (FastAPI backend, dialogue manager, SQLite schedule, Next.js UI, optional Whisper voice):
 > see [`DEMO.md`](DEMO.md) for how to run it, the mid-evaluation script and the dialogue-level results.
+> **LLM mode**: set `ANTHROPIC_API_KEY` and an LLM runs the conversation with tool calls to the clinic database,
+> with XLM-R hints and code-level safety guards (`backend/llm_agent.py`, see `DEMO.md`). Without a key the rule-based manager runs.
 > **Deployment** (PostgreSQL, Redis sessions, Docker Compose, SMS reminders, staff schedule page, load test): see [`DEPLOY.md`](DEPLOY.md).
 
 Code-switched Urdu/English clinic messages, labelled for intent, slots (BIO) and department.
